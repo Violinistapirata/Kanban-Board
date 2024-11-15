@@ -1,0 +1,9 @@
+.current-board-container {
+    padding: 2rem;
+    border: 1px solid red;
+    width: 80vw;
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    flex-wrap: wrap;
+} 

@@ -8,8 +8,10 @@ function App() {
   return (
     <>
      <NavBar />
-     <SideBar />
-     <CurrentBoard />
+     <div className='central-section'>
+        <SideBar />
+        <CurrentBoard />
+     </div>
      <Footer />
     </>
   )
