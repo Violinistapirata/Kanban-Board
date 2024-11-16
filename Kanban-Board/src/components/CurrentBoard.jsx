@@ -1,8 +1,8 @@
 import './CurrentBoard.css';
-import taskList from '../../kanban.json'
 
-function CurrentBoard() {
 
+function CurrentBoard(props) {
+    const taskList = props.taskList;
     const itemsId = taskList.map((item) => {
         const itemId = item.id
         // console.log(item.id);
