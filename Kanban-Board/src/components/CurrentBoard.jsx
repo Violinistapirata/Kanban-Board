@@ -11,30 +11,25 @@ import './CurrentBoard.css';
 // import { useParams } from 'react-router-dom';
 
 
-function CurrentBoard(props) {
-    const taskList = props.taskList;
+function CurrentBoard({taskList}) {
+
     // const params = useParams();
-    console.log(taskList);
-
-
-    const itemsId = taskList.map((item) => {
-        const itemId = item.id
-        // console.log(item.id);
-        return itemId;
-    })
-    // console.log(itemsId);
-    console.log(itemsId);
-    
-    // const taskList = 
     return (
-        <>
-            <ul>{taskList.map((task) => (
-                <li key={task.id}>
-                    <h2>{task.title}</h2>
-                </li>
-                ))}
-            </ul>
-        </>
+            <>
+                {taskList.map((task) => (
+                    <ul key={task.id}>
+                        <li >
+                            <h2>{task.title}</h2>
+                        </li>
+                        <li>{task.description}</li>
+                        <li>{task.assignee}</li>
+                        <li>{task.status}</li>
+                        <li>{task.priority}</li>
+                        <li>{task.createdDate}</li>
+                        <li>{task.dueDate}</li>
+                    </ul>
+                    ))}
+            </>
     )
 };
 

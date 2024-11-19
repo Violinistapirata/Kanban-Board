@@ -6,14 +6,14 @@ import CurrentBoard from "./components/CurrentBoard";
 import KanbanJson from './data/kanban.json'
 
 function App() {
-  const taskList = KanbanJson;
+  
   return (
     <>
       <main>
         <NavBar />
         <div className="central-section">
           <SideBar />
-          <CurrentBoard taskList={taskList}/>
+          <CurrentBoard taskList={KanbanJson}/>
         </div>
         <Footer />
       </main>
