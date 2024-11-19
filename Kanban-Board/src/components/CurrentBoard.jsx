@@ -23,12 +23,12 @@ function CurrentBoard({taskList}) {
                         </li>
                         <li>{task.description}</li>
                         <li>{task.assignee}</li>
-                        <li>{task.status}</li>
+                        <li>{task.status} {task.status==="Done"? "✅" : task.status==="In Progress"? "✍️" : "❌" }</li>
                         <li>{task.priority}</li>
                         <li>{task.createdDate}</li>
                         <li>{task.dueDate}</li>
                     </ul>
-                    ))}
+                    ))}      
             </>
     )
 };
