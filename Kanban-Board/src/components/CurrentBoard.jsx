@@ -3,14 +3,14 @@ import { useState } from 'react';
 // import { useParams } from 'react-router-dom';
 
 function CurrentBoard({taskList}) {
-    const [updateTaskList, setUpdateTaskList] = useState(taskList)
+    const [currentTaskList, setCurrentTaskList] = useState(taskList)
     // const params = useParams();
     return (
             <>
-                {updateTaskList.map((task) => (
+                {currentTaskList.map((task) => (
                     <>
                         <ul key={task.id}>
-                            <li >
+                            <li>
                                 <h2>{task.title}</h2>
                             </li>
                             <li>{task.description}</li>
@@ -21,10 +21,12 @@ function CurrentBoard({taskList}) {
                             <li>{task.dueDate}</li>
                         </ul>
                         <button onClick={()=> {
-                            const taskIndex = taskList.indexOf(task);
-                            const newTaskList = taskList.splice(taskIndex, 1);
-                            console.log(taskList);
-                            setUpdateTaskList(newTaskList);
+                            const taskListCopy = [...currentTaskList]
+                            const taskId = task.id;
+                            const newTaskList = taskListCopy.filter((task)=>task.id !== taskId);
+                            // console.log(taskList);
+                            console.log(newTaskList);
+                            setCurrentTaskList(newTaskList);
                             }}>
                             Delete Task
                         </button>
