@@ -23,9 +23,7 @@ function CurrentBoard({taskList}) {
                         <button onClick={()=> {
                             const taskListCopy = [...currentTaskList]
                             const taskId = task.id;
-                            const newTaskList = taskListCopy.filter((task)=>task.id !== taskId);
-                            // console.log(taskList);
-                            console.log(newTaskList);
+                            const newTaskList = taskListCopy.filter((element)=>element.id !== taskId);
                             setCurrentTaskList(newTaskList);
                             }}>
                             Delete Task
