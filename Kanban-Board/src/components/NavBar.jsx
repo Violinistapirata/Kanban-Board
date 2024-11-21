@@ -1,5 +1,8 @@
-import { Link } from 'react-router-dom';
+//CSS
 import './NavBar.css';
+
+//COMPONENTS
+import { Link } from 'react-router-dom';
 
 function NavBar() {
     return (

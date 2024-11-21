@@ -1,3 +1,4 @@
+//COMPONENTS
 import CurrentBoard from "../components/CurrentBoard";
 
 function DashboardPage () {

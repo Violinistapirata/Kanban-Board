@@ -1,5 +1,26 @@
+#about {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+
+  img {
+    width: 50%;
+  }
+}
+
+
 .central-section {
   border: 10px soid blue;
   display: flex;
 
+}
+
+.github-links-container {
+  width: 50%;
+  display: flex;
+  justify-content: space-around;
+
+ 
 }
