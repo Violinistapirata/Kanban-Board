@@ -1,6 +1,9 @@
 // CSS
 import './CurrentBoard.css';
 
+//ASSETS
+import KanbanJson from '../data/kanban.json';
+
 // COMPONENTS
 import List from './List';
 
@@ -8,12 +11,12 @@ import List from './List';
 // import { useState } from 'react';
 // import { useParams } from 'react-router-dom';
 
-function CurrentBoard({taskList}) {
+function CurrentBoard() {
    
     // const params = useParams();
     return (
             <>
-                <List taskList={taskList} />
+                <List taskList={KanbanJson} />
             </>
     )
 };
