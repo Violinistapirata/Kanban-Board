@@ -1,11 +1,21 @@
 // CSS
 import "./App.css";
 
+//ASSETS
+import KanbanJson from './data/kanban.json';
+
 //COMPONENTS
+import { Route, Routes } from "react-router-dom";
+
 import NavBar from "./components/NavBar";
 import SideBar from "./components/SideBar";
-import CurrentBoard from "./components/CurrentBoard";
 import Footer from "./components/Footer";
+import DashboardPage from "./Pages/DashboardPage";
+import TaskDetailsPage from "./Pages/TaskDetailsPage";
+import AboutPage from "./Pages/AboutPage";
+import NotFoundPage from "./Pages/NotFoundPage";
+
+
 
 function App() {
   return (
@@ -13,7 +23,12 @@ function App() {
       <NavBar />
       <div className="central-section">
         <SideBar />
-        <CurrentBoard />
+        <Routes>
+          <Route path="/" element={<DashboardPage />} />
+          <Route path="/details" element={<TaskDetailsPage task={KanbanJson[1]}/>} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
       </div>
       <Footer />
     </main>
