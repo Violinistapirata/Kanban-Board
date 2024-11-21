@@ -1,6 +1,9 @@
+// HOOKS
 import { useState } from "react";
+
 function List ({taskList}){
     const [currentTaskList, setCurrentTaskList] = useState(taskList)
+    
     return(
         <>
             {currentTaskList.map((task) => (
