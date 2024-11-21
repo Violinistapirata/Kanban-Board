@@ -1,3 +1,4 @@
+import { Link, useParams } from "react-router-dom";
 
 
 function Task ({task, currentTaskList, setCurrentTaskList}){
@@ -7,14 +8,16 @@ function Task ({task, currentTaskList, setCurrentTaskList}){
     <>
         <ul>
             <li>
-                <h2>{task.title}</h2>
+                <h2>
+                <Link to={`/details/${task.id}`}>{task.title}</Link>
+                </h2>
             </li>
-            <li>{task.description}</li>
-            <li>{task.assignee}</li>
-            <li>{task.status} {task.status==="Done"? "✅" : task.status==="In Progress"? "✍️" : "❌" }</li>
-            <li>{task.priority}</li>
-            <li>{task.createdDate}</li>
-            <li>{task.dueDate}</li>
+            {/* <li>{task.description}</li> */}
+            <li>Assignee: {task.assignee}</li>
+            {/* <li>{task.status} {task.status==="Done"? "✅" : task.status==="In Progress"? "✍️" : "❌" }</li> */}
+            <li>Priority: {task.priority}</li>
+          {/*   <li>{task.createdDate}</li>
+            <li>{task.dueDate}</li> */}
         </ul>
         <button onClick={()=> {
             const taskListCopy = [...currentTaskList]

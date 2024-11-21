@@ -1,5 +1,15 @@
+//ASSETS
+import KanbanJson from '../data/kanban.json';
 
-function TaskDetailsPage ({task: {title, description, assignee, status, priority, createdDate, dueDate}}) {
+//HOOKS
+import { useParams } from "react-router-dom";
+
+
+function TaskDetailsPage () {
+    const { taskId } = useParams();    
+    const selectedTask = KanbanJson.find((task) => task.id === taskId);
+    const {title, description, assignee, status, priority, createdDate, dueDate} = selectedTask;
+    
     return (
         <ul>
             <li>Title: {title}</li>

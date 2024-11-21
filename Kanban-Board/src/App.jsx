@@ -2,7 +2,7 @@
 import "./App.css";
 
 //ASSETS
-import KanbanJson from './data/kanban.json';
+// import KanbanJson from './data/kanban.json';
 
 //COMPONENTS
 import { Route, Routes } from "react-router-dom";
@@ -25,7 +25,7 @@ function App() {
         <SideBar />
         <Routes>
           <Route path="/" element={<DashboardPage />} />
-          <Route path="/details" element={<TaskDetailsPage task={KanbanJson[1]}/>} />
+          <Route path="/details/:taskId" element={<TaskDetailsPage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
