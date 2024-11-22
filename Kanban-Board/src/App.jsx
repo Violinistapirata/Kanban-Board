@@ -2,9 +2,10 @@
 import "./App.css";
 
 //ASSETS
-// import KanbanJson from './data/kanban.json';
+import KanbanJson from './data/kanban.json';
 
 //COMPONENTS
+import { useState } from "react";
 import { Route, Routes } from "react-router-dom";
 
 import NavBar from "./components/NavBar";
@@ -18,14 +19,16 @@ import NotFoundPage from "./Pages/NotFoundPage";
 
 
 function App() {
+  const [currentTaskList, setCurrentTaskList] = useState(KanbanJson);
+  
   return (
     <main>
       <NavBar />
       <div className="central-section">
         <SideBar />
         <Routes>
-          <Route path="/" element={<DashboardPage />} />
-          <Route path="/details/:taskId" element={<TaskDetailsPage />} />
+          <Route path="/" element={<DashboardPage taskList={currentTaskList} setTaskList={setCurrentTaskList}/>} />
+          <Route path="/details/:taskId" element={<TaskDetailsPage taskList={currentTaskList}/>} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

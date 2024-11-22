@@ -1,7 +1,7 @@
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 
-function Task ({task, currentTaskList, setCurrentTaskList}){
+function Task ({task, taskList, setTaskList}){
     
 
     return (
@@ -20,10 +20,10 @@ function Task ({task, currentTaskList, setCurrentTaskList}){
             <li>{task.dueDate}</li> */}
         </ul>
         <button onClick={()=> {
-            const taskListCopy = [...currentTaskList]
+            const taskListCopy = [...taskList]
             const taskId = task.id;
             const newTaskList = taskListCopy.filter((task)=>task.id !== taskId);
-            setCurrentTaskList(newTaskList);
+            setTaskList(newTaskList);
             }}>
             Delete Task
         </button>

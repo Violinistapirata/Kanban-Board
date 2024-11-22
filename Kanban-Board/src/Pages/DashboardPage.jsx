@@ -1,9 +1,9 @@
 //COMPONENTS
 import CurrentBoard from "../components/CurrentBoard";
 
-function DashboardPage () {
+function DashboardPage ({taskList, setTaskList}) {
     return(
-        <CurrentBoard />
+        <CurrentBoard taskList={taskList} setTaskList={setTaskList}/>
     )
 }
 

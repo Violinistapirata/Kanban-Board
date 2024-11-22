@@ -1,17 +1,14 @@
 // COMPONENTS
 import Task from "./Task";
 
-// HOOKS
-import { useState } from "react";
 
-function List({ taskList }) {
-    const [currentTaskList, setCurrentTaskList] = useState(taskList);
+function List({ taskList, setTaskList }) {
 
   return (
     <>
-      {currentTaskList.map((task) => (
+      {taskList.map((task) => (
         
-        <Task key={task.id} task={task} currentTaskList={currentTaskList} setCurrentTaskList={setCurrentTaskList} />
+        <Task key={task.id} task={task} taskList={taskList} setTaskList={setTaskList} />
     
       ))}
     </>
