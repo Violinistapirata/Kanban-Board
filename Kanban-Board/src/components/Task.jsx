@@ -20,9 +20,8 @@ function Task ({task, taskList, setTaskList}){
             <li>{task.dueDate}</li> */}
         </ul>
         <button onClick={()=> {
-            const taskListCopy = [...taskList]
             const taskId = task.id;
-            const newTaskList = taskListCopy.filter((task)=>task.id !== taskId);
+            const newTaskList = taskList.filter((task)=>task.id !== taskId);
             setTaskList(newTaskList);
             }}>
             Delete Task
