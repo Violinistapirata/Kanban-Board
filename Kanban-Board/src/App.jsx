@@ -11,6 +11,8 @@ import { Route, Routes } from "react-router-dom";
 import NavBar from "./components/NavBar";
 import SideBar from "./components/SideBar";
 import Footer from "./components/Footer";
+
+//PAGES
 import DashboardPage from "./Pages/DashboardPage";
 import TaskDetailsPage from "./Pages/TaskDetailsPage";
 import AboutPage from "./Pages/AboutPage";

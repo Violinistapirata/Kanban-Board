@@ -16,10 +16,8 @@ function CreateTaskForm({ taskList, setTaskList, showForm }) {
   function handleAddTask (e) {
     e.preventDefault();
     const newTaskList = [...taskList, newTask];
-    console.log(newTaskList);
     setTaskList(newTaskList);
     showForm(false);
-    console.log('tasklist after setTaskList', taskList);
   }
   
   const lastTaskId = taskList[taskList.length - 1].id;
