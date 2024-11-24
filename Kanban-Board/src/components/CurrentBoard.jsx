@@ -8,7 +8,7 @@ import { useState } from "react";
 
 function CurrentBoard({taskList, setTaskList}) {
   
-  const [showCreateTaskForm, setShowCreateTaskForm] = useState(false);
+  const [showCreateTaskForm, setShowCreateTaskForm] = useState(true);
   // const [showUpdateTaskForm, setShowUpdateTaskForm] = useState(false)
   console.log(taskList);
   
@@ -22,12 +22,12 @@ function CurrentBoard({taskList, setTaskList}) {
     );
   // if (showUpdateTaskForm) <UpdateTaskForm />;
   return (
-    <>
+    <div>
       <List
         taskList={taskList}
         setTaskList={setTaskList}
       />
-    </>
+    </div>
   );
 }
 
