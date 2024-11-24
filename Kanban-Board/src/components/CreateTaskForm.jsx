@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function CreateTaskForm({ taskList, setTaskList, showForm }) {
+function CreateTaskForm({ taskList, setTaskList, showForm, }) {
 
     //States from the form inputs
   const [title, setTitle] = useState("");
@@ -79,6 +79,7 @@ function CreateTaskForm({ taskList, setTaskList, showForm }) {
         <button type="submit">
           Add task
         </button>
+        <button onClick={()=>showForm(false)}>X</button>
       </form>
     </>
   );

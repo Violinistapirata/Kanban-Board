@@ -3,8 +3,8 @@ import './SideBar.css'
 function SideBar () {
     return (
         <ul className='SideBar-container'>
-            <li>MY BOARDS</li>
-            <li>ARCHIVE BOARDS</li>
+            <h2>MY BOARDS</h2>
+            <h2>ARCHIVE BOARDS</h2>
            
         </ul>
     )

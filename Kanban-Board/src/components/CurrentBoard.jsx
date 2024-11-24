@@ -6,28 +6,28 @@ import List from "./List";
 import CreateTaskForm from "./CreateTaskForm";
 import { useState } from "react";
 
-function CurrentBoard({taskList, setTaskList}) {
-  
+function CurrentBoard({ taskList, setTaskList }) {
   const [showCreateTaskForm, setShowCreateTaskForm] = useState(false);
   // const [showUpdateTaskForm, setShowUpdateTaskForm] = useState(false)
   console.log(taskList);
-  
-  if (showCreateTaskForm)
-    return (
+
+  // if (showUpdateTaskForm) <UpdateTaskForm />;
+  return (
+    <div className="current-board-container"> <h1>TO DO</h1>
+      <List
+        taskList={taskList}
+        setTaskList={setTaskList}
+        setShowCreateTaskForm={setShowCreateTaskForm}
+      />
+      {showCreateTaskForm &&
       <CreateTaskForm
         taskList={taskList}
         setTaskList={setTaskList}
         showForm={setShowCreateTaskForm}
+
       />
-    );
-  // if (showUpdateTaskForm) <UpdateTaskForm />;
-  return (
-    <>
-      <List
-        taskList={taskList}
-        setTaskList={setTaskList}
-      />
-    </>
+      }
+    </div>
   );
 }
 

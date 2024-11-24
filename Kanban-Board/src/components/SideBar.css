@@ -1,3 +1,8 @@
+h2{
+
+    color:#ffffff
+}
+
 .SideBar-container{
     border: 1px solid black;
     width: 20%;
@@ -7,5 +12,8 @@
     align-items: flex-start;
     min-height: 80vh;
     gap: 2rem;
+    background-color: #7d2ce0;
+    padding: 2rem;
+    
     
 }
