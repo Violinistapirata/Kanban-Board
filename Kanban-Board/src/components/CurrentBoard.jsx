@@ -10,13 +10,24 @@ function CurrentBoard({ taskList, setTaskList }) {
   const [showCreateTaskForm, setShowCreateTaskForm] = useState(false);
 
   return (
-    <div className="current-board-container"> 
-        <h1>TO DO</h1>
-      <List
-        taskList={taskList}
-        setTaskList={setTaskList}
-        setShowCreateTaskForm={setShowCreateTaskForm}
-      />
+    <div className="current-board-container">
+        <div>
+            <h1>TO DO</h1>
+            <List
+                taskList={taskList}
+                setTaskList={setTaskList}
+                setShowCreateTaskForm={setShowCreateTaskForm}
+            />
+        </div>
+        <div>
+            <h1>DOING</h1>
+            
+        </div>
+        <div>
+            <h1>DONE</h1>
+            
+        </div>
+    
       {showCreateTaskForm &&
       <CreateTaskForm
         taskList={taskList}
