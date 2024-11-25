@@ -21,7 +21,10 @@ function UpdateTaskForm({task, taskProps, formProps }) {
     e.preventDefault();
     console.log("THIS IS THE PREVIOUS TASKLIST", taskProps.currentTaskList);
     const updatedTaskList = [...taskProps.currentTaskList];
-    updatedTaskList.splice(task.id*1 -1, 1, updatedTask);
+    const taskIndex = taskProps.currentTaskList.indexOf(task);
+    console.log(taskIndex);
+    
+    updatedTaskList.splice(taskIndex, 1, updatedTask);
     console.log("THIS IS THE UPDATED TASK LIST", updatedTaskList);
     taskProps.setCurrentTaskList(updatedTaskList);
     formProps.setShowUpdateTaskForm(false);
@@ -88,6 +91,7 @@ function UpdateTaskForm({task, taskProps, formProps }) {
         <button type="submit">
           Update task
         </button>
+        <button onClick={()=>formProps.setShowUpdateTaskForm(false)}>X</button>
       </form>
     </>
   );

@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 import UpdateTaskForm from "../components/UpdateTaskForm";
+import { Link } from "react-router-dom";
 
 function TaskDetailsPage({ taskProps }) {
     console.log(taskProps.currentTaskList);
@@ -44,6 +45,7 @@ function TaskDetailsPage({ taskProps }) {
       </ul>
       <br />
       <button onClick={handleEditTask}>Edit task</button>
+      <Link to={'/'}><button>{'<-- Back to board'}</button></Link>
     </div>
   );
 }
