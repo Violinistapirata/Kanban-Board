@@ -19,11 +19,14 @@ function UpdateTaskForm({task, taskProps, formProps }) {
   //Function for the form's onSubmit event listener
   const handleUpdateTask = (e) => {
     e.preventDefault();
-    const updatedTaskList = [...taskProps.taskList].splice(task.id -1, 1, updatedTask);
-    taskProps.setTaskList(updatedTaskList);
-    formProps.setShowForm(false);
+    console.log("THIS IS THE PREVIOUS TASKLIST", taskProps.currentTaskList);
+    const updatedTaskList = [...taskProps.currentTaskList];
+    updatedTaskList.splice(task.id*1 -1, 1, updatedTask);
+    console.log("THIS IS THE UPDATED TASK LIST", updatedTaskList);
+    taskProps.setCurrentTaskList(updatedTaskList);
+    formProps.setShowUpdateTaskForm(false);
   }
-  const taskCopy = {...task}
+
   let updatedTask = {
     id: task.id,
     title: title,
@@ -35,6 +38,8 @@ function UpdateTaskForm({task, taskProps, formProps }) {
     lastUpdate: new Date().toString(),
     dueDate: dueDate,
   };
+  console.log("THIS IS THE UPDATED TASK", updatedTask);
+  
     
   return (
     <>

@@ -19,10 +19,9 @@ function CreateTaskForm({ taskList, setTaskList, showForm, }) {
     setTaskList(newTaskList);
     showForm(false);
   }
-  
-  const lastTaskId = taskList[taskList.length - 1].id;
+
   let newTask = {
-    id: lastTaskId*1 + 1,
+    id: taskList.length + 1,
     title: title,
     description: description,
     assignee: assignee,
