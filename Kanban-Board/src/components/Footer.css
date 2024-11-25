@@ -1,6 +1,14 @@
 .footer-container {
-    border: 1px solid black;
     display: flex;
     justify-content: space-around;
+    align-items: center;
     width: 100%;
+    height: 60PX;
+    
+    background-color: #f3f3f3;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #7d2ce0;
 }
