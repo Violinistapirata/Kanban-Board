@@ -38,7 +38,7 @@ function UpdateTaskForm({task, taskProps, formProps }) {
     status: task.status,
     priority: priority,
     createdDate: task.createdDate,
-    lastUpdate: new Date().toString(),
+    lastUpdate: new Date().toLocaleDateString("en-GB"),
     dueDate: dueDate,
   };
   console.log("THIS IS THE UPDATED TASK", updatedTask);
