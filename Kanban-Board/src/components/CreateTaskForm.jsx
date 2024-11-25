@@ -28,7 +28,7 @@ function CreateTaskForm({ taskList, setTaskList, showForm }) {
     assignee: assignee,
     status: "To Do",
     priority: priority,
-    createdDate: new Date().toString,
+    createdDate: new Date().toString(),
     dueDate: dueDate,
   };
     

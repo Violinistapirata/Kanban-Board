@@ -20,7 +20,7 @@ function CurrentBoard({taskList, setTaskList}) {
         showForm={setShowCreateTaskForm}
       />
     );
-  // if (showUpdateTaskForm) <UpdateTaskForm />;
+  // {showUpdateTaskForm && <UpdateTaskForm />};
   return (
     <div>
       <List

@@ -22,6 +22,7 @@ import NotFoundPage from "./Pages/NotFoundPage";
 
 function App() {
   const [currentTaskList, setCurrentTaskList] = useState(KanbanJson);
+  const taskProps = {currentTaskList, setCurrentTaskList};
   
   return (
     <main>
@@ -30,7 +31,7 @@ function App() {
         <SideBar />
         <Routes>
           <Route path="/" element={<DashboardPage taskList={currentTaskList} setTaskList={setCurrentTaskList}/>} />
-          <Route path="/details/:taskId" element={<TaskDetailsPage taskList={currentTaskList}/>} />
+          <Route path="/details/:taskId" element={<TaskDetailsPage taskProps={taskProps}/>} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
