@@ -21,7 +21,7 @@ function CreateTaskForm({ taskList, setTaskList, showForm, }) {
   }
 
   let newTask = {
-    id: taskList.length + 1,
+    id: Math.floor(Math.random()*999999).toString(),
     title: title,
     description: description,
     assignee: assignee,

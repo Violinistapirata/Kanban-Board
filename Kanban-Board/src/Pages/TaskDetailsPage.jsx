@@ -4,6 +4,8 @@ import { useParams } from "react-router-dom";
 import UpdateTaskForm from "../components/UpdateTaskForm";
 
 function TaskDetailsPage({ taskProps }) {
+    console.log(taskProps.currentTaskList);
+    
   const [showUpdateTaskForm, setShowUpdateTaskForm] = useState(false);
   const formProps = { showUpdateTaskForm, setShowUpdateTaskForm };
 
