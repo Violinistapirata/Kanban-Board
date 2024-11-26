@@ -1,3 +1,8 @@
+
+//CSS
+import "./UpdateTaskForm.css"
+
+//HOOKS
 import { useState } from "react";
 
 function UpdateTaskForm({task, taskProps, formProps }) {
@@ -45,7 +50,7 @@ function UpdateTaskForm({task, taskProps, formProps }) {
   
     
   return (
-    <>
+    <><div className="update-task-container">
       <h1>EDIT TASK</h1>
 
       <form onSubmit= {handleUpdateTask}>
@@ -93,6 +98,7 @@ function UpdateTaskForm({task, taskProps, formProps }) {
         </button>
         <button onClick={()=>formProps.setShowUpdateTaskForm(false)}>X</button>
       </form>
+      </div>
     </>
   );
 }

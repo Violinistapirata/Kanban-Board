@@ -16,16 +16,39 @@ h1{
     align-items: start;
     flex-wrap: wrap;
     gap: 10rem;
-    background-color: #f3f3f3;
+    background-color: #cacaca;
+   
    
     
     div {
         min-height: 75vh;
         padding: 1rem;
-        background-color: #F0F0F0;
+        background: linear-gradient(to bottom left,#f3f3f3,#cacaca);
         box-shadow: 3px -1px 0px #654d83;
         border-top-right-radius: 15px;
         /* border: 1px solid red; */
         width: 25%;
     }
-} 
+
+
+    button{
+
+        background-color: #873de0;
+        color: white;
+        padding-top: 2%;
+        margin-top: 5%;
+        padding: 10px 10px;
+        margin-right: 10px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: bold;
+
+
+
+    }
+}
+
+    
+

@@ -4,6 +4,9 @@ import { useParams } from "react-router-dom";
 import UpdateTaskForm from "../components/UpdateTaskForm";
 import { Link } from "react-router-dom";
 
+//CSS
+import './TaskDetailsPage.css';
+
 function TaskDetailsPage({ taskProps }) {
     console.log(taskProps.currentTaskList);
     
@@ -33,7 +36,7 @@ function TaskDetailsPage({ taskProps }) {
       formProps={formProps}
     />
   ) : (
-    <div>
+    <div className="task-details-container">
       <ul>
         <li>Title: {title}</li>
         <li>Description: {description}</li>

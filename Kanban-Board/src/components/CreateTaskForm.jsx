@@ -1,4 +1,7 @@
+// COMPONENTS
 import { useState } from "react";
+// CSS
+import "./CreateTaskForm.css";
 
 function CreateTaskForm({ taskList, setTaskList, showForm, }) {
 
@@ -33,7 +36,7 @@ function CreateTaskForm({ taskList, setTaskList, showForm, }) {
     
   return (
     <>
-      <h1>NEW TASK</h1>
+      <div className="create-task-container"><h1>NEW TASK</h1>
 
       <form onSubmit= {handleAddTask}>
         <label htmlFor="title">Title: </label>
@@ -80,6 +83,7 @@ function CreateTaskForm({ taskList, setTaskList, showForm, }) {
         </button>
         <button onClick={()=>showForm(false)}>X</button>
       </form>
+      </div>
     </>
   );
 }
