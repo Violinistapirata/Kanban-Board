@@ -20,8 +20,7 @@
     color:#b786ef;
   }
   
-  form input[type="text"],
-  form input[type="date"],
+  form input,
   form textarea,
   form select {
     width: 100%;

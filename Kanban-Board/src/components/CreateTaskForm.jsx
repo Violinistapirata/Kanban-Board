@@ -10,7 +10,7 @@ function CreateTaskForm({ taskList, setTaskList, showForm, }) {
   const [description, setDescription] = useState("");
   const [assignee, setAssignee] = useState("");
   const [priority, setPriority] = useState("Choose priority");
-  const [dueDate, setDueDate] = useState("yyyy/mm/dd");
+  const [dueDate, setDueDate] = useState("not assigned");
 
     //Function for the select input
   const handleSelect = (e) => setPriority(e.target.value);
@@ -30,7 +30,7 @@ function CreateTaskForm({ taskList, setTaskList, showForm, }) {
     assignee: assignee,
     status: "To Do",
     priority: priority,
-    createdDate: new Date().toString(),
+    createdDate: new Date().toLocaleDateString("en-GB"),
     dueDate: dueDate,
   };
     
