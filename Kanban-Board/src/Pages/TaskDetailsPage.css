@@ -1,14 +1,23 @@
 .task-details-container{
-    min-height: 75vh;
+   
     padding: 2rem;
     background-color: #F0F0F0;
     box-shadow: 3px -1px 0px #654d83;
     border-top-right-radius: 15px;
     width: 25%;
+    height: auto;
     display: flex;
     justify-content: start;
     align-items: start;
     flex-wrap: wrap;
     gap: 10rem;
     background-color: #f3f3f3;
+}
+
+.task-details-background{
+    width: 100%;
+    height: auto;
+    margin: 0px;
+    background-color: #cacaca;
+    padding-bottom: 0px;
 }

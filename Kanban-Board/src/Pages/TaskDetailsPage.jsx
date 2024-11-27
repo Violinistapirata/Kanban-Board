@@ -36,6 +36,7 @@ function TaskDetailsPage({ taskProps }) {
       formProps={formProps}
     />
   ) : (
+    <div className="task-details-background">
     <div className="task-details-container">
       <ul>
         <li>Title: {title}</li>
@@ -49,6 +50,7 @@ function TaskDetailsPage({ taskProps }) {
       <br />
       <button onClick={handleEditTask}>Edit task</button>
       <Link to={'/'}><button>{'<-- Back to board'}</button></Link>
+    </div>
     </div>
   );
 }
