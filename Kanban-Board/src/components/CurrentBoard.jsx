@@ -13,11 +13,13 @@ function CurrentBoard({ taskList, setTaskList }) {
     <div className="current-board-container">
         <div>
             <h1>TO DO</h1>
-            <List
-                taskList={taskList}
-                setTaskList={setTaskList}
-                setShowCreateTaskForm={setShowCreateTaskForm}
-            />
+            <div className="task-scroll">
+                <List
+                    taskList={taskList}
+                    setTaskList={setTaskList}
+                    setShowCreateTaskForm={setShowCreateTaskForm}
+                />
+            </div>
         </div>
         <div>
             <h1>DOING</h1>
