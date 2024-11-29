@@ -1,16 +1,22 @@
 // COMPONENTS
 import Task from "./Task";
-import './List.css'
+import "./List.css";
 
-
-function List({ taskList, setTaskList, setShowCreateTaskForm }) {
-
+function List({ taskList, setTaskList, taskStatus }) {
+  const filteredTasks = (parameter) => taskList.filter(task => task.status === parameter)
+  console.log(taskStatus);
+  
   return (
     <>
-        {taskList.length > 0 && taskList.map((task) => <Task key={task.id} task={task} taskList={taskList} setTaskList={setTaskList} />
-        )}
-      <br/>
-      <button className="add-task-button" onClick={()=>setShowCreateTaskForm(true)}>Add Task</button>
+      {taskList.length > 0 &&
+        filteredTasks(`${taskStatus}`).map((task) => (
+          <Task
+            key={task.id}
+            task={task}
+            taskList={taskList}
+            setTaskList={setTaskList}
+          />
+        ))}
     </>
   );
 }
