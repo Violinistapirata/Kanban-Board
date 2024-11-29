@@ -24,7 +24,7 @@ function CurrentBoard({ taskList, setTaskList }) {
             <button className="add-task-button" onClick={()=>setShowCreateTaskForm(true)}>Add Task</button>
         </div>
         <div>
-            <h1>DOING</h1>
+            <h1>IN PROGRESS</h1>
             <div className="task-scroll">
                 <List
                     taskList={taskList}

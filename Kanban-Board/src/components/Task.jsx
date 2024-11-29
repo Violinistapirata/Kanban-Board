@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import './Task.css';
 
 function Task ({task, taskList, setTaskList}){
-    
 
     return (
     <>
