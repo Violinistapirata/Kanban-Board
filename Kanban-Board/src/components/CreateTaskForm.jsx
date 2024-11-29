@@ -6,7 +6,7 @@ import "./CreateTaskForm.css";
 function CreateTaskForm({ taskList, setTaskList, showForm, }) {
 
     //States from the form inputs
-  const [title, setTitle] = useState("");
+  const [title, setTitle] = useState("Unknown title");
   const [description, setDescription] = useState("");
   const [assignee, setAssignee] = useState("");
   const [priority, setPriority] = useState("Choose priority");
