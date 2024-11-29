@@ -1,5 +1,5 @@
 h1 {
-  color: #ba8cf2;
+  color: #fafafa;
   padding-bottom: 10px;
   font-size: 30px;
 }
@@ -11,7 +11,7 @@ h1 {
   justify-content: start;
   align-items: start;
   gap: 10rem;
-  background-color: #cacaca;
+  background-color: #5e22a7;
 
 /*   .task-container {
    
@@ -40,24 +40,23 @@ h1 {
   div {
     height: 75vh;
     padding: 1rem;
-    background: linear-gradient(to bottom left, #f3f3f3, #cacaca);
-    box-shadow: 3px -1px 0px #654d83;
+    background: linear-gradient(to bottom left,#f3f3f3, 30%, #5e22a7);
+    box-shadow: 3px 6px 15px #654d83;
     border-top-right-radius: 15px;
     /* border: 1px solid red; */
-    width: 25%;
+    width: 30%;
   }
 
-  button {
-    background-color: #873de0;
-    color: white;
-    padding-top: 2%;
-    margin-top: 5%;
-    padding: 10px 10px;
-    margin-right: 10px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 14px;
+  button { 
+    color: #ffffff;
+    font-size: 16px;
     font-weight: bold;
+    border: none;
+    padding: 12px;
+    margin: 7px;
+    background: linear-gradient(to bottom,#ffffff, 10%, #5e22a7);
+    cursor: pointer;
+     
+
   }
 }

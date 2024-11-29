@@ -39,13 +39,19 @@ function TaskDetailsPage({ taskProps }) {
     <div className="task-details-background">
     <div className="task-details-container">
       <ul>
-        <li>Title: {title}</li>
-        <li>Description: {description}</li>
-        <li>Assignee: {assignee}</li>
-        <li>Status: {status}</li>
-        <li>Priority: {priority}</li>
-        <li>Created on: {createdDate}</li>
-        <li>Due date: {dueDate}</li>
+        <li><h3>Title: </h3><p>{title}</p></li>
+        <br></br>
+        <li><h4>Description:</h4> <p>{description}</p></li>
+        <br></br>
+        <li><h4>Assignee: </h4><p>{assignee}</p></li>
+        <br></br>
+        <li><h4>Status:</h4><p> {status}</p></li>
+        <br></br>
+        <li><h4>Priority:</h4> <p>{priority}</p></li>
+        <br></br>
+        <li><h4>Created on:</h4><p> {createdDate}</p></li>
+        <br></br>
+        <li><h4>Due date:</h4> <p>{dueDate}</p></li>
       </ul>
       <br />
       <button onClick={handleEditTask}>Edit task</button>

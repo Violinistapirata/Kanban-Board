@@ -1,23 +1,50 @@
+h3 {
+    color: #f3f3f3;
+}
+h4 {
+    color: #f3f3f3;
+}
+
+
+p{
+    color: #f3f3f3;
+    font-size: 19px;
+    
+
+}
+
+
+
+
 .task-details-container{
    
-    padding: 2rem;
-    background-color: #F0F0F0;
-    box-shadow: 3px -1px 0px #654d83;
+    height: 75vh;
+    padding: 1rem;
+    background: linear-gradient(to bottom left,#f3f3f3, 30%, #5e22a7);
+    box-shadow: 3px 6px 15px #654d83;
     border-top-right-radius: 15px;
-    width: 25%;
-    height: auto;
-    display: flex;
-    justify-content: start;
-    align-items: start;
-    flex-wrap: wrap;
-    gap: 10rem;
-    background-color: #f3f3f3;
+    width: 30%;
 }
 
 .task-details-background{
     width: 100%;
-    height: auto;
+    
     margin: 0px;
-    background-color: #cacaca;
+    background-color: #5e22a7;
     padding-bottom: 0px;
+}
+
+button{
+   
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    padding: 12px;
+    margin: 7px;
+    background: linear-gradient(to bottom,#ffffff, 10%, #5e22a7);
+    cursor: pointer;
+     
+
+
 }

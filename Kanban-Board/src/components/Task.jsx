@@ -23,7 +23,7 @@ function Task ({task, taskList, setTaskList}){
             const newTaskList = taskList.filter((task)=>task.id !== taskId);
             setTaskList(newTaskList);
             }}>
-            Delete Task
+            <img src="src/images/papelera.png"></img>
         </button></li>
         </ul>
         

@@ -14,10 +14,38 @@ h2{
     background-color: #ffffff;
     padding: 10px 0px 20px 15px;
     box-shadow: 4px -1px 1px #7f669e;
-}
+    position: relative;
+    height: 120px;
+  
+    
+    img{
+        width: 20px;
+        background-color:#ffffff;
+    }
+
+    .delete-task-button {
+        
+        
+    background: #ffffff;
+        margin-right: 10px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: bold;
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        opacity: 1;
+       
+        }
+        
+        
+      }
+    
 
 .task-text{
 
-    color: #000000;
+    
 }
 
