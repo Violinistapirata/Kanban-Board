@@ -1,15 +1,25 @@
 .update-task-container{
 
     min-height: 75vh;
-    padding: 2rem;
+    padding: 1rem;
     box-shadow: 3px -1px 0px #654d83;
     border-top-right-radius: 15px;
-    width: 25%;
-    display: flex;
-    justify-content: start;
-    align-items: start;
-    flex-wrap: wrap;
-    gap: 10rem;
+    width: 35%;
     background: linear-gradient(to bottom left,#f3f3f3, 30%, #5e22a7);
-    /* background-color: #f3f3f3; */
+    position: relative;
 }    
+
+#x{
+    position: absolute;
+    top: 0; 
+    right: 0;
+    margin: 20px 20px 5px 10px;
+    font-size: 10px;
+    width: 12px;
+    height: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+
+  }

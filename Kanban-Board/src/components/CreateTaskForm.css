@@ -1,6 +1,8 @@
 .create-task-container{
     position: absolute;
     float: right;
+    padding: 1rem;
+   
 
     
 }
@@ -8,7 +10,8 @@
   form{
     background-color: #f9f9f9;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    font-family: Verdana, Geneva, Tahoma, sans-serif;;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    border-top-right-radius: 15px;
     width: 100%;
     padding: 10px;
   }
@@ -50,6 +53,21 @@
   
   form button[type="submit"]:hover {
     background-color: #913afc;
+  }
+
+  #x{
+    position: absolute; 
+    top: 0; 
+    right: 0;
+    margin: 20px 20px 5px 10px;
+    font-size: 10px;
+    width: 12px;
+    height: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+
   }
   
 
