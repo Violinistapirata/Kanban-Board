@@ -4,7 +4,6 @@ import "./List.css";
 
 function List({ taskList, setTaskList, taskStatus }) {
   const filteredTasks = (parameter) => taskList.filter(task => task.status === parameter)
-  console.log(taskStatus);
   
   return (
     <>

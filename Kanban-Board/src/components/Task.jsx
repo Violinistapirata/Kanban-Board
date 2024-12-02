@@ -1,12 +1,20 @@
 import { Link } from "react-router-dom";
 //CSS
 import './Task.css';
+import { useDrag } from "react-dnd";
 
 function Task ({task, taskList, setTaskList}){
-
+    const [{isDragging}, drag] = useDrag(()=>({
+        type: "task",
+        item: {id: task.id, status: task.status},
+        collect: (monitor)=>({
+            isDragging: !!monitor.isDragging()
+        })
+    }))
+    
     return (
     <>
-        <ul className="task-container">
+        <ul ref={drag} className={`task-container ${isDragging && "red-border"}`} draggable="true">
             <li>
                 <h2>
                 <Link to={`/details/${task.id}`}>{task.title}</Link>

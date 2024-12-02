@@ -8,7 +8,6 @@ import { Link } from "react-router-dom";
 import './TaskDetailsPage.css';
 
 function TaskDetailsPage({ taskProps }) {
-    console.log(taskProps.currentTaskList);
     
   const [showUpdateTaskForm, setShowUpdateTaskForm] = useState(false);
   const formProps = { showUpdateTaskForm, setShowUpdateTaskForm };
