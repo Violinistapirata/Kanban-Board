@@ -9,12 +9,9 @@ import { useDrop } from "react-dnd";
 
 function CurrentBoard({ taskList, setTaskList }) {
   const [showCreateTaskForm, setShowCreateTaskForm] = useState(false);
-    const [{isOver}, drop] =useDrop(()=>({
+    const [, drop] =useDrop(()=>({
         accept: "task",
         drop: (item)=> changeTaskStatus(item.id, "To Do"),
-        collect: (monitor)=>({
-            isOver: !!monitor.isOver()            
-        })
     }))
     const [, drop2] =useDrop(()=>({
         accept: "task",
@@ -32,11 +29,12 @@ function CurrentBoard({ taskList, setTaskList }) {
 
         setTaskList([...taskList])
     }
+    
   return (
       <div className="current-board-container">
         <div>
           <h1>TO DO</h1>
-          <div className={`task-scroll ${isOver && "red-border"}`} ref={drop}>
+          <div className="task-scroll" ref={drop}>
             <List
               taskList={taskList}
               setTaskList={setTaskList}
@@ -53,7 +51,7 @@ function CurrentBoard({ taskList, setTaskList }) {
         </div>
         <div>
           <h1>IN PROGRESS</h1>
-          <div className={`task-scroll ${isOver && "red-border"}`} ref={drop2}>
+          <div className="task-scroll" ref={drop2}>
             <List
               taskList={taskList}
               setTaskList={setTaskList}
@@ -64,7 +62,7 @@ function CurrentBoard({ taskList, setTaskList }) {
         <div>
           <h1>DONE</h1>
 
-          <div className={`task-scroll ${isOver && "red-border"}`} ref={drop3}>
+          <div className="task-scroll" ref={drop3}>
             <List
               taskList={taskList}
               setTaskList={setTaskList}
