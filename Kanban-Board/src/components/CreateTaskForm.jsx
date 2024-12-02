@@ -78,10 +78,10 @@ function CreateTaskForm({ taskList, setTaskList, showForm, }) {
           onChange={(e) => setDueDate(e.target.value)}
         />
 
-        <button type="submit">
+        <button  type="submit">
           Add task
         </button>
-        <button onClick={()=>showForm(false)}>X</button>
+        <button id="x" onClick={()=>showForm(false)}>X</button>
       </form>
       </div>
     </>

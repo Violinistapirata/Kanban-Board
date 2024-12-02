@@ -35,9 +35,13 @@ function TaskDetailsPage({ taskProps }) {
       formProps={formProps}
     />
   ) : (
-    <div className="task-details-background">
+    
+    
+    <div className="task-details-main-background">
+    
     <div className="task-details-container">
-      <ul>
+    <h1>TASK DETAILS</h1>
+      <ul className="task-details-background">
         <li><h3>Title: </h3><p>{title}</p></li>
         <br></br>
         <li><h4>Description:</h4> <p>{description}</p></li>

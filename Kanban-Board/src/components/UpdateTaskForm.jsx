@@ -103,7 +103,7 @@ function UpdateTaskForm({ task, taskProps, formProps }) {
           </select>
 
           <button type="submit">Update task</button>
-          <button onClick={() => formProps.setShowUpdateTaskForm(false)}>
+          <button id="x" onClick={() => formProps.setShowUpdateTaskForm(false)}>
             X
           </button>
         </form>
