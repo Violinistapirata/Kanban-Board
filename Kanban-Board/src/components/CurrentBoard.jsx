@@ -1,85 +1,90 @@
-// CSS
-import "./CurrentBoard.css";
+//CONTEXT
+import { TaskListContext } from "../Contexts/taskLists.context";
 
-// COMPONENTS
-import List from "./List";
-import CreateTaskForm from "./CreateTaskForm";
-import { useState } from "react";
+//HOOKS
+import { useContext, useState } from "react";
 import { useDrop } from "react-dnd";
 
-function CurrentBoard({ taskList, setTaskList }) {
+//COMPONENTS
+import List from "./List";
+import CreateTaskForm from "./CreateTaskForm";
+
+//STYLES
+import "./CurrentBoard.css";
+
+/*-------------------------------------------------------------------*/
+
+function CurrentBoard() {
+  //taskList context props
+  const {currentTaskList, setCurrentTaskList} = useContext(TaskListContext)
+
+  //Add-task form state
   const [showCreateTaskForm, setShowCreateTaskForm] = useState(false);
-    const [, drop] =useDrop(()=>({
-        accept: "task",
-        drop: (item)=> changeTaskStatus(item.id, "To Do"),
-    }))
-    const [, drop2] =useDrop(()=>({
-        accept: "task",
-        drop: (item)=> changeTaskStatus(item.id, "In Progress"),            
-    }))
-    const [, drop3] =useDrop(()=>({
-        accept: "task",
-        drop: (item)=> changeTaskStatus(item.id, "Done"),
-    }))
-    
-    
-    function changeTaskStatus(taskId, newStatus) {
-        const draggedTask = taskList.find((task)=> task.id === taskId);
-        draggedTask.status = newStatus;
 
-        setTaskList([...taskList])
-    }
-    
+  //Drag-and-drop functionality
+  const [, drop] = useDrop(() => ({
+    accept: "task",
+    drop: (item) => changeTaskStatus(item.id, "To Do"),
+  }));
+  const [, drop2] = useDrop(() => ({
+    accept: "task",
+    drop: (item) => changeTaskStatus(item.id, "In Progress"),
+  }));
+  const [, drop3] = useDrop(() => ({
+    accept: "task",
+    drop: (item) => changeTaskStatus(item.id, "Done"),
+  }));
+
+  function changeTaskStatus(taskId, newStatus) {
+    const droppedTask = currentTaskList.find((task) => task.id === taskId);
+    droppedTask.status = newStatus;
+
+    setCurrentTaskList([...currentTaskList]);
+  }
+
   return (
-      <div className="current-board-container">
-        <div>
-          <h1>TO DO</h1>
-          <div className="task-scroll" ref={drop}>
-            <List
-              taskList={taskList}
-              setTaskList={setTaskList}
-              taskStatus="To Do"
-            />
-          </div>
-
-          <button
-            className="add-task-button"
-            onClick={() => setShowCreateTaskForm(true)}
-          >
-            Add Task
-          </button>
-        </div>
-        <div>
-          <h1>IN PROGRESS</h1>
-          <div className="task-scroll" ref={drop2}>
-            <List
-              taskList={taskList}
-              setTaskList={setTaskList}
-              taskStatus="In Progress"
-            />
-          </div>
-        </div>
-        <div>
-          <h1>DONE</h1>
-
-          <div className="task-scroll" ref={drop3}>
-            <List
-              taskList={taskList}
-              setTaskList={setTaskList}
-              taskStatus="Done"
-            />
-          </div>
-        </div>
-
-        {showCreateTaskForm && (
-          <CreateTaskForm
-            taskList={taskList}
-            setTaskList={setTaskList}
-            showForm={setShowCreateTaskForm}
+    <div className="current-board-container">
+      <div>
+        <h1>TO DO</h1>
+        <div className="task-scroll" ref={drop}>
+          <List
+            listStatus="To Do"
           />
-        )}
+        </div>
+
+        <button
+          className="add-task-button"
+          onClick={() => setShowCreateTaskForm(true)}
+        >
+          Add Task
+        </button>
+      </div>
+      <div>
+        <h1>IN PROGRESS</h1>
+        <div className="task-scroll" ref={drop2}>
+          <List
+            listStatus="In Progress"
+          />
+        </div>
+      </div>
+      <div>
+        <h1>DONE</h1>
+
+        <div className="task-scroll" ref={drop3}>
+          <List
+            listStatus="Done"
+          />
+        </div>
       </div>
 
+      {showCreateTaskForm && (
+        <CreateTaskForm
+          taskList={currentTaskList}
+          setTaskList={setCurrentTaskList}
+          showForm={setShowCreateTaskForm}
+        />
+      )}
+    </div>
   );
 }
 

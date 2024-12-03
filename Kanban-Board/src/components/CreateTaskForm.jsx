@@ -3,7 +3,7 @@ import { useState } from "react";
 // CSS
 import "./CreateTaskForm.css";
 
-function CreateTaskForm({ taskList, setTaskList, showForm, }) {
+function CreateTaskForm({ taskList, setTaskList, showForm }) {
 
     //States from the form inputs
   const [title, setTitle] = useState("Unknown title");
@@ -14,7 +14,10 @@ function CreateTaskForm({ taskList, setTaskList, showForm, }) {
 
     //Function for the select input
   const handleSelect = (e) => setPriority(e.target.value);
-  
+  // function handleInput (value, inputUpdateFunction) {
+  //   inputUpdateFunction(value)
+  // }
+
   //Function for the add task button (submit)
   function handleAddTask (e) {
     e.preventDefault();
@@ -25,13 +28,13 @@ function CreateTaskForm({ taskList, setTaskList, showForm, }) {
 
   let newTask = {
     id: Math.floor(Math.random()*999999).toString(),
-    title: title,
-    description: description,
-    assignee: assignee,
+    title,
+    description,
+    assignee,
     status: "To Do",
-    priority: priority,
+    priority,
     createdDate: new Date().toLocaleDateString("en-GB"),
-    dueDate: dueDate,
+    dueDate,
   };
     
   return (

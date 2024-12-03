@@ -1,19 +1,32 @@
-// COMPONENTS
+//CONTEXT
+import { TaskListContext } from "../Contexts/taskLists.context";
+
+//HOOKS
+import { useContext } from "react";
+
+//COMPONENTS
 import Task from "./Task";
+
+//STYLES
 import "./List.css";
 
-function List({ taskList, setTaskList, taskStatus }) {
-  const filteredTasks = (parameter) => taskList.filter(task => task.status === parameter)
+/*-------------------------------------------------------------------*/
+
+function List({listStatus}) {
+
+  const {currentTaskList, setCurrentTaskList} = useContext(TaskListContext)
+  
+  const filteredTasks = () => currentTaskList.filter(task => task.status === listStatus)
   
   return (
     <>
-      {taskList.length > 0 &&
-        filteredTasks(`${taskStatus}`).map((task) => (
+      {currentTaskList &&
+        filteredTasks().map((task) => (
           <Task
             key={task.id}
             task={task}
-            taskList={taskList}
-            setTaskList={setTaskList}
+            taskList={currentTaskList}
+            setTaskList={setCurrentTaskList}
           />
         ))}
     </>

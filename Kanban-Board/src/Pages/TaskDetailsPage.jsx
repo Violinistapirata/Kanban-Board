@@ -1,21 +1,32 @@
 //HOOKS
+import { useContext } from "react";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
+
+//COMPONENTS
 import UpdateTaskForm from "../components/UpdateTaskForm";
+
+//ROUTES
 import { Link } from "react-router-dom";
 
 //CSS
 import './TaskDetailsPage.css';
+import { TaskListContext } from "../Contexts/taskLists.context";
 
-function TaskDetailsPage({ taskProps }) {
-    
+/*-------------------------------------------------------------------*/
+
+function TaskDetailsPage() {
+  
+  const {currentTaskList} = useContext(TaskListContext)
+
   const [showUpdateTaskForm, setShowUpdateTaskForm] = useState(false);
   const formProps = { showUpdateTaskForm, setShowUpdateTaskForm };
 
   const { taskId } = useParams();
-  const selectedTask = taskProps.currentTaskList.find(
+  const selectedTask = currentTaskList.find(
     (task) => task.id == taskId
   );
+
   const {
     title,
     description,
@@ -31,7 +42,6 @@ function TaskDetailsPage({ taskProps }) {
   return showUpdateTaskForm ? (
     <UpdateTaskForm
       task={selectedTask}
-      taskProps={taskProps}
       formProps={formProps}
     />
   ) : (
@@ -43,17 +53,17 @@ function TaskDetailsPage({ taskProps }) {
     <h1>TASK DETAILS</h1>
       <ul className="task-details-background">
         <li><h3>Title: </h3><p>{title}</p></li>
-        <br></br>
+        <br/>
         <li><h4>Description:</h4> <p>{description}</p></li>
-        <br></br>
+        <br/>
         <li><h4>Assignee: </h4><p>{assignee}</p></li>
-        <br></br>
+        <br/>
         <li><h4>Status:</h4><p> {status}</p></li>
-        <br></br>
+        <br/>
         <li><h4>Priority:</h4> <p>{priority}</p></li>
-        <br></br>
+        <br/>
         <li><h4>Created on:</h4><p> {createdDate}</p></li>
-        <br></br>
+        <br/>
         <li><h4>Due date:</h4> <p>{dueDate}</p></li>
       </ul>
       <br />
