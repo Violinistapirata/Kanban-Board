@@ -1,9 +1,24 @@
+//ROUTES
 import { Link } from "react-router-dom";
-//CSS
-import './Task.css';
+
+//CONTEXT
+import { TaskListContext } from "../Contexts/taskLists.context";
+
+//HOOKS
+import { useContext } from "react";
 import { useDrag } from "react-dnd";
 
-function Task ({task, taskList, setTaskList}){
+//STYLES
+import './Task.css';
+
+/*-------------------------------------------------------------------*/
+
+function Task ({task}){
+
+    //taskList context props
+    const {currentTaskList, setCurrentTaskList} = useContext(TaskListContext)
+
+    //Drag-and-drop functionality
     const [{isDragging}, drag] = useDrag(()=>({
         type: "task",
         item: {id: task.id, status: task.status},
@@ -12,6 +27,13 @@ function Task ({task, taskList, setTaskList}){
         })
     }))
     
+    //Handle function for the delete task button
+    function handleDeleteTask () {
+        const taskId = task.id;
+        const newTaskList = currentTaskList.filter((task)=>task.id !== taskId);
+        setCurrentTaskList(newTaskList);
+    }
+
     return (
     <>
         <ul ref={drag} className={`task-container ${isDragging && "red-border"}`} draggable="true">
@@ -20,21 +42,12 @@ function Task ({task, taskList, setTaskList}){
                 <Link to={`/details/${task.id}`}>{task.title}</Link>
                 </h2>
             </li>
-            {/* <li>{task.description}</li> */}
             <li className="task-text">Assignee: {task.assignee}</li>
-            {/* <li>{task.status} {task.status==="Done"? "✅" : task.status==="In Progress"? "✍️" : "❌" }</li> */}
             <li className="task-text">Priority: {task.priority}</li>
-          {/*   <li>{task.createdDate}</li>
-            <li>{task.dueDate}</li> */}
-            <li><button className="delete-task-button" onClick={()=> {
-            const taskId = task.id;
-            const newTaskList = taskList.filter((task)=>task.id !== taskId);
-            setTaskList(newTaskList);
-            }}>
+            <li><button className="delete-task-button" onClick={handleDeleteTask}>
             <img src="src/images/papelera.png"></img>
         </button></li>
         </ul>
-        
     </>
     )
 }

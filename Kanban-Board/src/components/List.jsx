@@ -14,7 +14,8 @@ import "./List.css";
 
 function List({listStatus}) {
 
-  const {currentTaskList, setCurrentTaskList} = useContext(TaskListContext)
+  //taskList context props
+  const {currentTaskList} = useContext(TaskListContext)
   
   const filteredTasks = () => currentTaskList.filter(task => task.status === listStatus)
   
@@ -25,8 +26,6 @@ function List({listStatus}) {
           <Task
             key={task.id}
             task={task}
-            taskList={currentTaskList}
-            setTaskList={setCurrentTaskList}
           />
         ))}
     </>

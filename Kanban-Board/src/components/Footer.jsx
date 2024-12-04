@@ -1,3 +1,4 @@
+//STYLES
 import './Footer.css'
 
 function Footer () {
@@ -5,7 +6,7 @@ function Footer () {
         <ul className='footer-container'>
             <li>KANBAN BOARD</li>
             <li>By: Tomás & Èric</li>
-            <li href="https://github.com/Violinistapirata/Kanban-Board">GitHub</li>
+            <li><a href="https://github.com/Violinistapirata/Kanban-Board">GitHub</a></li>
         </ul>
     )
 }

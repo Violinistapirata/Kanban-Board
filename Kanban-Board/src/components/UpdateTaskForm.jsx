@@ -34,13 +34,11 @@ function UpdateTaskForm({ task, showForm }) {
   //Function for the form's onSubmit event listener
   const handleUpdateTask = (e) => {
     e.preventDefault();
-    console.log("THIS IS THE PREVIOUS TASKLIST", currentTaskList);
-    const updatedTaskList = [...currentTaskList];
+
     const taskIndex = currentTaskList.indexOf(task);
-    console.log(taskIndex);
+    const updatedTaskList = [...currentTaskList];
 
     updatedTaskList.splice(taskIndex, 1, updatedTask);
-    console.log("THIS IS THE UPDATED TASK LIST", updatedTaskList);
     setCurrentTaskList(updatedTaskList);
     showForm(false);
   };
@@ -56,9 +54,6 @@ function UpdateTaskForm({ task, showForm }) {
     lastUpdate: new Date().toLocaleDateString("en-CA"),
     dueDate: dueDate,
   };
-  console.log(updatedTask.lastUpdate);
-  
-  console.log("THIS IS THE UPDATED TASK", updatedTask);
 
   return (
     <>

@@ -59,7 +59,7 @@ function TaskDetailsPage() {
           <br />
           <li>
             <h4>Status:</h4>
-            <p> {status}</p>
+            <p> {status} {status==="Done"? "✅" : status==="In Progress"? "✍️" : "❌" }</p>
           </li>
           <br />
           <li>
