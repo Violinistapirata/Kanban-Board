@@ -79,8 +79,6 @@ function CurrentBoard() {
 
       {showCreateTaskForm && (
         <CreateTaskForm
-          taskList={currentTaskList}
-          setTaskList={setCurrentTaskList}
           showForm={setShowCreateTaskForm}
         />
       )}

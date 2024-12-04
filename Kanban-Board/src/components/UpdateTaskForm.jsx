@@ -1,10 +1,19 @@
-//CSS
-import "./UpdateTaskForm.css";
+//CONTEXT
+import { TaskListContext } from "../Contexts/taskLists.context";
 
 //HOOKS
-import { useState } from "react";
+import { useContext, useState } from "react";
 
-function UpdateTaskForm({ task, taskProps, formProps }) {
+//STYLES
+import "./UpdateTaskForm.css";
+
+/*-------------------------------------------------------------------*/
+
+function UpdateTaskForm({ task, showForm }) {
+
+  //taskList context props
+  const { currentTaskList, setCurrentTaskList } = useContext(TaskListContext)
+
   //States from the form inputs
   const [title, setTitle] = useState(task.title);
   const [description, setDescription] = useState(task.description);
@@ -25,15 +34,15 @@ function UpdateTaskForm({ task, taskProps, formProps }) {
   //Function for the form's onSubmit event listener
   const handleUpdateTask = (e) => {
     e.preventDefault();
-    console.log("THIS IS THE PREVIOUS TASKLIST", taskProps.currentTaskList);
-    const updatedTaskList = [...taskProps.currentTaskList];
-    const taskIndex = taskProps.currentTaskList.indexOf(task);
+    console.log("THIS IS THE PREVIOUS TASKLIST", currentTaskList);
+    const updatedTaskList = [...currentTaskList];
+    const taskIndex = currentTaskList.indexOf(task);
     console.log(taskIndex);
 
     updatedTaskList.splice(taskIndex, 1, updatedTask);
     console.log("THIS IS THE UPDATED TASK LIST", updatedTaskList);
-    taskProps.setCurrentTaskList(updatedTaskList);
-    formProps.setShowUpdateTaskForm(false);
+    setCurrentTaskList(updatedTaskList);
+    showForm(false);
   };
 
   let updatedTask = {
@@ -44,9 +53,11 @@ function UpdateTaskForm({ task, taskProps, formProps }) {
     status: status,
     priority: priority,
     createdDate: task.createdDate,
-    lastUpdate: new Date().toLocaleDateString("en-GB"),
+    lastUpdate: new Date().toLocaleDateString("en-CA"),
     dueDate: dueDate,
   };
+  console.log(updatedTask.lastUpdate);
+  
   console.log("THIS IS THE UPDATED TASK", updatedTask);
 
   return (
@@ -103,7 +114,7 @@ function UpdateTaskForm({ task, taskProps, formProps }) {
           </select>
 
           <button type="submit">Update task</button>
-          <button id="x" onClick={() => formProps.setShowUpdateTaskForm(false)}>
+          <button id="x" onClick={() => showForm(false)}>
             X
           </button>
         </form>

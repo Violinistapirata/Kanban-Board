@@ -1,10 +1,6 @@
 //COMPONENTS
 import CurrentBoard from "../components/CurrentBoard";
 
-function DashboardPage ({taskList, setTaskList}) {
-    return(
-        <CurrentBoard taskList={taskList} setTaskList={setTaskList}/>
-    )
-}
+const DashboardPage = () => <CurrentBoard />
 
 export default DashboardPage;
