@@ -20,12 +20,10 @@ function CreateTaskForm({ showForm }) {
   const [priority, setPriority] = useState("Choose priority");
   const [dueDate, setDueDate] = useState("not assigned");
 
-  //Function for the select input
-  const handleSelect = (e) => setPriority(e.target.value);
-
-  /* function handleInput (value, inputUpdateFunction) {
-    inputUpdateFunction(value)
-  } */
+  //Handle function for the inputs
+  function handleInput (e, updateFunction) {
+    updateFunction(e.target.value)
+  }
 
   //Function for the add task button (submit)
   function handleAddTask(e) {
@@ -57,14 +55,14 @@ function CreateTaskForm({ showForm }) {
             type="text"
             name="title"
             value={title}
-            onChange={(e) => setTitle(e.target.value)}
+            onChange={(e) => handleInput(e, setTitle)}
           />
 
           <label htmlFor="description">Description: </label>
           <textarea
             name="description"
             value={description}
-            onChange={(e) => setDescription(e.target.value)}
+            onChange={(e) => handleInput(e, setDescription)}
           />
 
           <label htmlFor="assignee">Assignee: </label>
@@ -72,11 +70,11 @@ function CreateTaskForm({ showForm }) {
             type="text"
             name="assignee"
             value={assignee}
-            onChange={(e) => setAssignee(e.target.value)}
+            onChange={(e) => handleInput(e, setAssignee)}
           />
 
           <label htmlFor="priority">Priority: </label>
-          <select name="priority" value={priority} onChange={handleSelect}>
+          <select name="priority" value={priority} onChange={(e) => handleInput(e, setPriority)}>
             <option value="-Choose priority-">-Choose priority-</option>
             <option value="Low">Low</option>
             <option value="Medium">Medium</option>
@@ -88,7 +86,7 @@ function CreateTaskForm({ showForm }) {
             type="date"
             name="due-date"
             value={dueDate}
-            onChange={(e) => setDueDate(e.target.value)}
+            onChange={(e) => handleInput(e, setDueDate)}
           />
 
           <button type="submit">Add task</button>

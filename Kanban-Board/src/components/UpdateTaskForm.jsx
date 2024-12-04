@@ -22,14 +22,11 @@ function UpdateTaskForm({ task, showForm }) {
   const [dueDate, setDueDate] = useState(task.dueDate);
   const [status, setStatus] = useState(task.status)
 
-  //Handle functions for the inputs's onChange event listeners
-  const handleTitle = (e) => setTitle(e.target.value);
-  const handleDescription = (e) => setDescription(e.target.value);
-  const handleAssignee = (e) => setAssignee(e.target.value);
-  const handleSelect = (e) => setPriority(e.target.value);
-  const handleDueDate = (e) => setDueDate(e.target.value);
-  const handleStatus = (e) => setStatus(e.target.value);
-
+ 
+  //Handle function for the inputs
+  function handleInput (e, updateFunction) {
+    updateFunction(e.target.value)
+  }
 
   //Function for the form's onSubmit event listener
   const handleUpdateTask = (e) => {
@@ -66,14 +63,14 @@ function UpdateTaskForm({ task, showForm }) {
             type="text"
             name="title"
             value={title}
-            onChange={handleTitle}
+            onChange={(e) => handleInput (e, setTitle)}
           />
 
           <label htmlFor="description">Description: </label>
           <textarea
             name="description"
             value={description}
-            onChange={handleDescription}
+            onChange={(e) => handleInput (e, setDescription)}
           />
 
           <label htmlFor="assignee">Assignee: </label>
@@ -81,11 +78,11 @@ function UpdateTaskForm({ task, showForm }) {
             type="text"
             name="assignee"
             value={assignee}
-            onChange={handleAssignee}
+            onChange={(e) => handleInput (e, setAssignee)}
           />
 
           <label htmlFor="priority">Priority: </label>
-          <select name="priority" value={priority} onChange={handleSelect}>
+          <select name="priority" value={priority} onChange={(e) => handleInput (e, setPriority)}>
             <option value="-Choose priority-">-Choose priority-</option>
             <option value="Low">Low</option>
             <option value="Medium">Medium</option>
@@ -97,11 +94,11 @@ function UpdateTaskForm({ task, showForm }) {
             type="date"
             name="due-date"
             value={dueDate}
-            onChange={handleDueDate}
+            onChange={(e) => handleInput (e, setDueDate)}
           />
 
           <label htmlFor="status">Status: </label>
-          <select name="status" value={status} onChange={handleStatus}>
+          <select name="status" value={status} onChange={(e) => handleInput (e, setStatus)}>
             <option value="-Choose status-">-Choose status-</option>
             <option value="To Do">To Do</option>
             <option value="In Progress">In Progress</option>
