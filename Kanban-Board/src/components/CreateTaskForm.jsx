@@ -14,16 +14,19 @@ function CreateTaskForm({ showForm }) {
   const { currentTaskList, setCurrentTaskList } = useContext(TaskListContext);
 
   //States from the form inputs
-  const [title, setTitle] = useState("Unknown title");
-  const [description, setDescription] = useState("");
-  const [assignee, setAssignee] = useState("");
-  const [priority, setPriority] = useState("Choose priority");
-  const [dueDate, setDueDate] = useState("not assigned");
+  const [inputs, setInputs] = useState({
+    title: "Unknown title",
+    description: "",
+    assignee: "",
+    priority: "Choose priority",
+    dueDate: "not assigned",
+  });
 
   //Handle function for the inputs
-  function handleInput (e, updateFunction) {
-    updateFunction(e.target.value)
-  }
+  const handleInput = (e) => {
+    const value = e.target.value;
+    setInputs({ ...inputs, [e.target.name]: value });
+  };
 
   //Function for the add task button (submit)
   function handleAddTask(e) {
@@ -33,6 +36,7 @@ function CreateTaskForm({ showForm }) {
     showForm(false);
   }
 
+  const {title, description, assignee, priority, dueDate} = inputs
   let newTask = {
     id: Math.floor(Math.random() * 999999).toString(),
     title,
@@ -55,14 +59,14 @@ function CreateTaskForm({ showForm }) {
             type="text"
             name="title"
             value={title}
-            onChange={(e) => handleInput(e, setTitle)}
+            onChange={handleInput}
           />
 
           <label htmlFor="description">Description: </label>
           <textarea
             name="description"
             value={description}
-            onChange={(e) => handleInput(e, setDescription)}
+            onChange={handleInput}
           />
 
           <label htmlFor="assignee">Assignee: </label>
@@ -70,11 +74,11 @@ function CreateTaskForm({ showForm }) {
             type="text"
             name="assignee"
             value={assignee}
-            onChange={(e) => handleInput(e, setAssignee)}
+            onChange={handleInput}
           />
 
           <label htmlFor="priority">Priority: </label>
-          <select name="priority" value={priority} onChange={(e) => handleInput(e, setPriority)}>
+          <select name="priority" value={priority} onChange={handleInput}>
             <option value="-Choose priority-">-Choose priority-</option>
             <option value="Low">Low</option>
             <option value="Medium">Medium</option>
@@ -84,9 +88,9 @@ function CreateTaskForm({ showForm }) {
           <label htmlFor="due-date">Due Date: </label>
           <input
             type="date"
-            name="due-date"
+            name="dueDate"
             value={dueDate}
-            onChange={(e) => handleInput(e, setDueDate)}
+            onChange={handleInput}
           />
 
           <button type="submit">Add task</button>
