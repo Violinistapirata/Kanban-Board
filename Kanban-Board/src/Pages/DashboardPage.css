@@ -1,0 +1,32 @@
+.board-card {
+  border: 1px solid black;
+  text-align: center;
+  padding: 1rem;
+}
+
+.boards-container {
+  width: 100%;
+  display: flex;
+  gap: 1rem;
+}
+.dashboard {
+    padding-top: 5rem;
+  justify-content: center;
+  align-items: start;
+  align-content: start;
+  flex-wrap: wrap;
+
+  article {
+    width: 70%;
+  }
+}
+
+.sidebar {
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  article {
+    width: 100%;
+  }
+}

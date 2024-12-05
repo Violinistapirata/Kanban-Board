@@ -3,6 +3,7 @@ import { Route, Routes } from "react-router-dom";
 
 //PAGES
 import DashboardPage from "./Pages/DashboardPage";
+import CurrentBoard from "./components/CurrentBoard"
 import TaskDetailsPage from "./Pages/TaskDetailsPage";
 import AboutPage from "./Pages/AboutPage";
 import ContactPage from "./Pages/ContactPage";
@@ -17,12 +18,12 @@ import Footer from "./components/Footer";
 import "./App.css";
 import { useContext } from "react";
 import { TaskListContext } from "./Contexts/taskLists.context";
-
 /*-------------------------------------------------------------------*/
 
 function App() {
-  const {currentTaskList} = useContext(TaskListContext)
-  const boardsArray =[{id: "board 1", taskList: currentTaskList}, {id: "board 2", taskList: []}, {id: "board 3", taskList: []}]
+  const {boardsArray} = useContext(TaskListContext)
+  
+
 
   return (
     <main>
@@ -31,6 +32,7 @@ function App() {
         <SideBar />
         <Routes>
           <Route path="/" element={<DashboardPage boardsArray={boardsArray}/>} />
+          <Route path="/:boardId" element={<CurrentBoard />} />
           <Route path="/details/:taskId" element={<TaskDetailsPage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/contact" element={<ContactPage />} />
