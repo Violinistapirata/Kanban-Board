@@ -5,6 +5,7 @@ import { Route, Routes } from "react-router-dom";
 import DashboardPage from "./Pages/DashboardPage";
 import TaskDetailsPage from "./Pages/TaskDetailsPage";
 import AboutPage from "./Pages/AboutPage";
+import ContactPage from "./Pages/ContactPage";
 import NotFoundPage from "./Pages/NotFoundPage";
 
 //COMPONENTS
@@ -32,6 +33,7 @@ function App() {
           <Route path="/" element={<DashboardPage boardsArray={boardsArray}/>} />
           <Route path="/details/:taskId" element={<TaskDetailsPage />} />
           <Route path="/about" element={<AboutPage />} />
+          <Route path="/contact" element={<ContactPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </div>
