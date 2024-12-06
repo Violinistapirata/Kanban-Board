@@ -9,7 +9,7 @@ const TaskListContext = createContext();
 
 function TaskListProviderWrapper(props) {
   const [boardsArray, setBoardsArray] = useState([]);
-  const [currentBoard, setCurrentBoard] = useState({})
+ 
   
 
   useEffect(() => {
@@ -56,8 +56,6 @@ function TaskListProviderWrapper(props) {
   return (
     <TaskListContext.Provider
       value={{
-        currentBoard,
-        setCurrentBoard,
         boardsArray,
         setBoardsArray,
       }}

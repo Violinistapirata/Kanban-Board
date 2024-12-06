@@ -11,8 +11,8 @@ import "./CreateTaskForm.css";
 
 function CreateTaskForm({ showForm }) {
   //taskList context props
-  const { currentTaskList, setCurrentTaskList } = useContext(TaskListContext);
-
+  const { currentBoard, setCurrentBoard } = useContext(TaskListContext);
+  const currentTaskList = currentBoard.taskList
   //States from the form inputs
   const [inputs, setInputs] = useState({
     title: "Unknown title",
@@ -32,7 +32,8 @@ function CreateTaskForm({ showForm }) {
   function handleAddTask(e) {
     e.preventDefault();
     const newTaskList = [...currentTaskList, newTask];
-    setCurrentTaskList(newTaskList);
+    setCurrentBoard({...currentBoard,
+      taskList: [...currentTaskList, newTaskList]});
     showForm(false);
   }
 

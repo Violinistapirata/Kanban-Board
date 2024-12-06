@@ -1,9 +1,3 @@
-//CONTEXT
-import { TaskListContext } from "../Contexts/taskLists.context";
-
-//HOOKS
-import { useContext } from "react";
-
 //COMPONENTS
 import Task from "./Task";
 
@@ -12,19 +6,18 @@ import "./List.css";
 
 /*-------------------------------------------------------------------*/
 
-function List({listStatus}) {
+function List({listStatus, taskList, setTaskList}) {
 
-  //taskList context props
-  const {currentBoard} = useContext(TaskListContext)
-  const currentTaskList = currentBoard.taskList
-  const filteredTasks = () => currentTaskList.filter(task => task.status === listStatus)
+  const filteredTasks = () => taskList.filter(task => task.status === listStatus)
   
   return (
     <>
-      {currentTaskList &&
+      {taskList &&
         filteredTasks().map((task) => (
           <Task
             key={task.id}
+            taskList={taskList}
+            setTaskList={setTaskList}
             task={task}
           />
         ))}

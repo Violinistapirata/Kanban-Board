@@ -2,7 +2,7 @@
 import { TaskListContext } from "../Contexts/taskLists.context";
 
 //HOOKS
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { useDrop } from "react-dnd";
 import { useParams } from "react-router-dom";
 
@@ -16,25 +16,17 @@ import "./CurrentBoard.css";
 /*-------------------------------------------------------------------*/
 
 function CurrentBoard() {
-  //taskList context props
-  const {currentBoard, setCurrentBoard, boardsArray} = useContext(TaskListContext)
 
+  //taskList context props
+  const {boardsArray} = useContext(TaskListContext)
   const { boardId } = useParams();
   const selectedBoard = boardsArray.find((board) => board.id == boardId);
+  const [currentBoard, setCurrentBoard] = useState(selectedBoard)
+  const [currentTaskList, setCurrentTaskList] = useState(currentBoard.taskList)
+  currentBoard !== selectedBoard && setCurrentBoard(selectedBoard) 
+  // !currentTaskList && setCurrentTaskList(currentBoard.taskList)
 
-  useEffect(()=>{
-    setCurrentBoard(selectedBoard);
-  }, [])
 
-  console.log("THIS IS THE CURRENT BOARD", currentBoard);
-  const currentTaskList = currentBoard.taskList;
-
-  console.log("THIS IS THE CURRENT TASKLIST", currentTaskList);
-  
-  const {taskList, setTaskList} = useState(currentTaskList)
-
-  
-  console.log("THIS IS THE TASKLIST STATE", taskList);
   //Add-task form state
   const [showCreateTaskForm, setShowCreateTaskForm] = useState(false);
 
@@ -53,10 +45,11 @@ function CurrentBoard() {
   }));
 
   function changeTaskStatus(taskId, newStatus) {
+    
     const droppedTask = currentTaskList.find((task) => task.id === taskId);
     droppedTask.status = newStatus;
-
-    setTaskList([...currentTaskList]);
+    
+    setCurrentTaskList([...currentTaskList]);
   }
 
   return (
@@ -66,6 +59,8 @@ function CurrentBoard() {
         <div className="task-scroll" ref={drop}>
           <List
             listStatus="To Do"
+            taskList={currentTaskList}
+            setTaskList={setCurrentTaskList}
           />
         </div>
 
@@ -81,6 +76,8 @@ function CurrentBoard() {
         <div className="task-scroll" ref={drop2}>
           <List
             listStatus="In Progress"
+            taskList={currentTaskList}
+            setTaskList={setCurrentTaskList}
           />
         </div>
       </div>
@@ -90,6 +87,8 @@ function CurrentBoard() {
         <div className="task-scroll" ref={drop3}>
           <List
             listStatus="Done"
+            taskList={currentTaskList}
+            setTaskList={setCurrentTaskList}
           />
         </div>
       </div>

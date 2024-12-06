@@ -1,11 +1,11 @@
 //ROUTES
 import { Link } from "react-router-dom";
 
-//CONTEXT
-import { TaskListContext } from "../Contexts/taskLists.context";
+// //CONTEXT
+// import { TaskListContext } from "../Contexts/taskLists.context";
 
-//HOOKS
-import { useContext } from "react";
+// //HOOKS
+// import { useContext } from "react";
 import { useDrag } from "react-dnd";
 
 //STYLES
@@ -13,11 +13,11 @@ import './Task.css';
 
 /*-------------------------------------------------------------------*/
 
-function Task ({task}){
+function Task ({taskList, setTaskList, task}){
 
     //taskList context props
-    const {currentTaskList, setCurrentTaskList} = useContext(TaskListContext)
-
+    // const {currentBoard, setCurrentBoard} = useContext(TaskListContext)
+    
     //Drag-and-drop functionality
     const [{isDragging}, drag] = useDrag(()=>({
         type: "task",
@@ -30,8 +30,8 @@ function Task ({task}){
     //Handle function for the delete task button
     function handleDeleteTask () {
         const taskId = task.id;
-        const newTaskList = currentTaskList.filter((task)=>task.id !== taskId);
-        setCurrentTaskList(newTaskList);
+        const newTaskList = taskList.filter((task)=>task.id !== taskId);
+        setTaskList(newTaskList);
     }
 
     return (

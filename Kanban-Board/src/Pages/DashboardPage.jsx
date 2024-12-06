@@ -13,17 +13,15 @@ import { useContext } from "react";
 /*-------------------------------------------------------------------*/
 
 function DashboardPage() {
-  const { boardsArray } =
-    useContext(TaskListContext);
+  const { boardsArray } = useContext(TaskListContext);
 
-  
   return (
     <div className="boards-container dashboard">
       {boardsArray.map((board) => {
         return (
           <article key={board.id} className="board-card">
             <Link to={`/${board.id}`}>
-              <h2>{board.name}</h2>
+                <h2>{board.name}</h2>
             </Link>
           </article>
         );

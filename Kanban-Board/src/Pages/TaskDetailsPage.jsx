@@ -16,8 +16,8 @@ import { TaskListContext } from "../Contexts/taskLists.context";
 
 function TaskDetailsPage() {
   //taskList context props
-  const { currentTaskList } = useContext(TaskListContext);
-
+  const { currentBoard } = useContext(TaskListContext);
+  const currentTaskList = currentBoard.taskList
   const [showUpdateTaskForm, setShowUpdateTaskForm] = useState(false);
 
   const { taskId } = useParams();
