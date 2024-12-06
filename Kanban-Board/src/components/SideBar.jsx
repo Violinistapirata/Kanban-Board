@@ -16,7 +16,7 @@ function SideBar() {
   return (
     <ul className="SideBar-container">
       <h2>MY BOARDS</h2>
-      <div className="boards-container sidebar">
+      <div className="boards-container-sidebar">
         {boardsArray.map((board) => {
           return (
             <article key={board.id} className="board-card">

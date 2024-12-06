@@ -1,34 +1,44 @@
-//ROUTES
-import { Link } from "react-router-dom";
-
+//HOOKS
+import { NavLink } from "react-router-dom"; 
 //IMAGES
 import Logo from "../images/LOGO.png";
 
 //STYLES
 import "./NavBar.css";
 
-/*-------------------------------------------------------------------*/
-
 function NavBar() {
   return (
     <nav>
       <ul className="navbar-container">
-        <li className="logo">
-          <img src={Logo} />
+        <NavLink to="/">
+          <li className="logo">
+            <img src={Logo} alt="Logo" />
+          </li>
+        </NavLink>
+        <li>
+          <NavLink
+            to="/"
+            className={({ isActive }) => (isActive ? "navbar-button active" : "navbar-button")}
+          >
+            Home
+          </NavLink>
         </li>
         <li>
-          <Link to={"/"}>
-            <button className="navbar-button">Home</button>
-          </Link>
+          <NavLink
+            to="/about"
+            className={({ isActive }) => (isActive ? "navbar-button active" : "navbar-button")}
+          >
+            About
+          </NavLink>
         </li>
         <li>
-          <Link to={"/about"}>
-            <button className="navbar-button">About</button>
-          </Link>
+          <NavLink
+            to="/contact"
+            className={({ isActive }) => (isActive ? "navbar-button active" : "navbar-button")}
+          >
+            Contact
+          </NavLink>
         </li>
-        <Link to={"/contact"}>
-          <button className="navbar-button">Contact</button>
-        </Link>
       </ul>
     </nav>
   );
