@@ -13,7 +13,7 @@ import './Task.css';
 
 /*-------------------------------------------------------------------*/
 
-function Task ({taskList, setTaskList, task}){
+function Task ({currentBoard, taskList, setTaskList, task}){
 
     //taskList context props
     // const {currentBoard, setCurrentBoard} = useContext(TaskListContext)
@@ -39,7 +39,7 @@ function Task ({taskList, setTaskList, task}){
         <ul ref={drag} className={`task-container ${isDragging && "red-border"}`} draggable="true">
             <li>
                 <h2>
-                <Link to={`/details/${task.id}`}>{task.title}</Link>
+                <Link to={`/details/${currentBoard.id}/${task.id}`}>{task.title}</Link>
                 </h2>
             </li>
             <li className="task-text">Assignee: {task.assignee}</li>

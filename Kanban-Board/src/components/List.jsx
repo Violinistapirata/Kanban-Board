@@ -6,7 +6,7 @@ import "./List.css";
 
 /*-------------------------------------------------------------------*/
 
-function List({listStatus, taskList, setTaskList}) {
+function List({listStatus, taskList, setTaskList, currentBoard}) {
 
   const filteredTasks = () => taskList.filter(task => task.status === listStatus)
   
@@ -16,6 +16,7 @@ function List({listStatus, taskList, setTaskList}) {
         filteredTasks().map((task) => (
           <Task
             key={task.id}
+            currentBoard={currentBoard}
             taskList={taskList}
             setTaskList={setTaskList}
             task={task}

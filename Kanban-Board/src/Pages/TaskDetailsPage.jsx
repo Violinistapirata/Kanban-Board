@@ -15,13 +15,14 @@ import { TaskListContext } from "../Contexts/taskLists.context";
 /*-------------------------------------------------------------------*/
 
 function TaskDetailsPage() {
-  //taskList context props
-  const { currentBoard } = useContext(TaskListContext);
-  const currentTaskList = currentBoard.taskList
   const [showUpdateTaskForm, setShowUpdateTaskForm] = useState(false);
-
-  const { taskId } = useParams();
+  //taskList context props
+  const { boardsArray } = useContext(TaskListContext);
+  const {boardId, taskId } = useParams()
+  const currentBoard = boardsArray.find((board) => board.id == boardId);
+  const currentTaskList = currentBoard.taskList
   const selectedTask = currentTaskList.find((task) => task.id == taskId);
+
 
   const {
     title,

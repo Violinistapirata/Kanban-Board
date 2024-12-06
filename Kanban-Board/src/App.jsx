@@ -29,7 +29,7 @@ function App() {
         <Routes>
           <Route path="/" element={<DashboardPage />} />
           <Route path="/:boardId" element={<CurrentBoard />} />
-          <Route path="/details/:taskId" element={<TaskDetailsPage />} />
+          <Route path="/details/:boardId/:taskId" element={<TaskDetailsPage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="*" element={<NotFoundPage />} />

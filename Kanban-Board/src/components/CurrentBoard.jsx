@@ -61,6 +61,7 @@ function CurrentBoard() {
             listStatus="To Do"
             taskList={currentTaskList}
             setTaskList={setCurrentTaskList}
+            currentBoard={currentBoard}
           />
         </div>
 
@@ -78,6 +79,7 @@ function CurrentBoard() {
             listStatus="In Progress"
             taskList={currentTaskList}
             setTaskList={setCurrentTaskList}
+            currentBoard={currentBoard}
           />
         </div>
       </div>
@@ -89,6 +91,7 @@ function CurrentBoard() {
             listStatus="Done"
             taskList={currentTaskList}
             setTaskList={setCurrentTaskList}
+            currentBoard={currentBoard}
           />
         </div>
       </div>
