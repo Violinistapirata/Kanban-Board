@@ -1,19 +1,24 @@
-// CONTEXT
-import { TaskListContext } from "../Contexts/taskLists.context";
-
 // HOOKS
 import { useContext, useState } from "react";
 
 //STYLES
 import "./CreateTaskForm.css";
 
+import { TaskListContext } from "../Contexts/taskLists.context";
+import { useParams } from "react-router-dom";
+
 /*-------------------------------------------------------------------*/
 
-function CreateTaskForm({ showForm }) {
-  //taskList context props
-  const { currentBoard, setCurrentBoard } = useContext(TaskListContext);
-  const currentTaskList = currentBoard.taskList
+function CreateTaskForm({
+  showForm,
+  currentTaskList,
+  setCurrentTaskList,
+  currentBoard,
+  }) {
   //States from the form inputs
+  const { boardsArray, setBoardsArray } = useContext(TaskListContext);
+  const {boardId} = useParams()
+
   const [inputs, setInputs] = useState({
     title: "Unknown title",
     description: "",
@@ -32,12 +37,26 @@ function CreateTaskForm({ showForm }) {
   function handleAddTask(e) {
     e.preventDefault();
     const newTaskList = [...currentTaskList, newTask];
-    setCurrentBoard({...currentBoard,
-      taskList: [...currentTaskList, newTaskList]});
+    setCurrentTaskList(newTaskList);
+    const newBoard = { ...currentBoard, taskList: newTaskList };
+    console.log(boardsArray);
+    const currentBoardIndex = boardsArray.indexOf(
+      boardsArray.find((board) => board.id === boardId)
+    );
+    const boardsArrayCopy = [...boardsArray];
+    boardsArrayCopy.splice(
+      currentBoardIndex,
+      1,
+      newBoard
+    );
+    const newBoardsArray = boardsArrayCopy
+    setBoardsArray(newBoardsArray);
+    console.log(boardsArray);
+
     showForm(false);
   }
 
-  const {title, description, assignee, priority, dueDate} = inputs
+  const { title, description, assignee, priority, dueDate } = inputs;
   let newTask = {
     id: Math.floor(Math.random() * 999999).toString(),
     title,

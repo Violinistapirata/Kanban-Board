@@ -99,6 +99,9 @@ function CurrentBoard() {
       {showCreateTaskForm && (
         <CreateTaskForm
           showForm={setShowCreateTaskForm}
+          currentTaskList={currentTaskList}
+          setCurrentTaskList={setCurrentTaskList}
+          currentBoard={currentBoard}
         />
       )}
     </div>

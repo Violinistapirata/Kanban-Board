@@ -33,14 +33,16 @@ function TaskListProviderWrapper(props) {
         ],
       },
       { id: "3", name: "board 3",taskList: [] },
+      
     ]);
     // Instead, if we have a backend database with the boards data we could fetch it like this when the app mounts
     /*  
-        fetch("BACKEND URL")
-        .then(response => response.json())
-        .then(response => setBoardsArray(response))    
+    fetch("BACKEND URL")
+    .then(response => response.json())
+    .then(response => setBoardsArray(response))    
     */
-  }, []);
+}, []);
+console.log(boardsArray);
   /* const taskListStatesArray = boardsArray.map((board) => {
     function CreateTaskListStateVariable() {
       const [taskList, setTaskList] = useState(board.taskList);
