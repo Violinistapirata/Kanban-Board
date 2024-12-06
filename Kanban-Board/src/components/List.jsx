@@ -15,8 +15,8 @@ import "./List.css";
 function List({listStatus}) {
 
   //taskList context props
-  const {currentTaskList} = useContext(TaskListContext)
-  
+  const {currentBoard} = useContext(TaskListContext)
+  const currentTaskList = currentBoard.taskList
   const filteredTasks = () => currentTaskList.filter(task => task.status === listStatus)
   
   return (

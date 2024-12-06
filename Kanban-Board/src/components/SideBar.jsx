@@ -1,3 +1,6 @@
+//ROUTES
+import { Link } from "react-router-dom";
+
 //CONTEXT
 import { TaskListContext } from "../Contexts/taskLists.context";
 
@@ -17,7 +20,9 @@ function SideBar() {
         {boardsArray.map((board) => {
           return (
             <article key={board.id} className="board-card">
-              <h2>{board.name}</h2>
+              <Link to={`/${board.id}`}>
+                <h2>{board.name}</h2>
+              </Link>
             </article>
           );
         })}

@@ -2,8 +2,9 @@
 import { TaskListContext } from "../Contexts/taskLists.context";
 
 //HOOKS
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useDrop } from "react-dnd";
+import { useParams } from "react-router-dom";
 
 //COMPONENTS
 import List from "./List";
@@ -16,8 +17,24 @@ import "./CurrentBoard.css";
 
 function CurrentBoard() {
   //taskList context props
-  const {currentTaskList, setCurrentTaskList} = useContext(TaskListContext)
+  const {currentBoard, setCurrentBoard, boardsArray} = useContext(TaskListContext)
 
+  const { boardId } = useParams();
+  const selectedBoard = boardsArray.find((board) => board.id == boardId);
+
+  useEffect(()=>{
+    setCurrentBoard(selectedBoard);
+  }, [])
+
+  console.log("THIS IS THE CURRENT BOARD", currentBoard);
+  const currentTaskList = currentBoard.taskList;
+
+  console.log("THIS IS THE CURRENT TASKLIST", currentTaskList);
+  
+  const {taskList, setTaskList} = useState(currentTaskList)
+
+  
+  console.log("THIS IS THE TASKLIST STATE", taskList);
   //Add-task form state
   const [showCreateTaskForm, setShowCreateTaskForm] = useState(false);
 
@@ -39,7 +56,7 @@ function CurrentBoard() {
     const droppedTask = currentTaskList.find((task) => task.id === taskId);
     droppedTask.status = newStatus;
 
-    setCurrentTaskList([...currentTaskList]);
+    setTaskList([...currentTaskList]);
   }
 
   return (

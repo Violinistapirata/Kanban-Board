@@ -16,14 +16,10 @@ import Footer from "./components/Footer";
 
 //STYLES
 import "./App.css";
-import { useContext } from "react";
-import { TaskListContext } from "./Contexts/taskLists.context";
+
 /*-------------------------------------------------------------------*/
 
-function App() {
-  const {boardsArray} = useContext(TaskListContext)
-  
-
+function App() { 
 
   return (
     <main>
@@ -31,7 +27,7 @@ function App() {
       <div className="central-section">
         <SideBar />
         <Routes>
-          <Route path="/" element={<DashboardPage boardsArray={boardsArray}/>} />
+          <Route path="/" element={<DashboardPage />} />
           <Route path="/:boardId" element={<CurrentBoard />} />
           <Route path="/details/:taskId" element={<TaskDetailsPage />} />
           <Route path="/about" element={<AboutPage />} />

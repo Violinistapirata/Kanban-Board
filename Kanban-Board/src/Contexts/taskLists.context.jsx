@@ -4,12 +4,13 @@ import KanbanJson from "../data/kanban.json";
 //HOOKS
 import { createContext, useEffect } from "react";
 import { useState } from "react";
-
 /*-------------------------------------------------------------------*/
 const TaskListContext = createContext();
 
 function TaskListProviderWrapper(props) {
   const [boardsArray, setBoardsArray] = useState([]);
+  const [currentBoard, setCurrentBoard] = useState({})
+  
 
   useEffect(() => {
     setBoardsArray([
@@ -40,8 +41,6 @@ function TaskListProviderWrapper(props) {
         .then(response => setBoardsArray(response))    
     */
   }, []);
-
-  console.log("THIS IS THE BOARDS ARRAY: ", boardsArray);
   /* const taskListStatesArray = boardsArray.map((board) => {
     function CreateTaskListStateVariable() {
       const [taskList, setTaskList] = useState(board.taskList);
@@ -53,15 +52,14 @@ function TaskListProviderWrapper(props) {
     return CreateTaskListStateVariable;
   }); */
 
-  const [currentTaskList, setCurrentTaskList] = useState(KanbanJson);
 
   return (
     <TaskListContext.Provider
       value={{
+        currentBoard,
+        setCurrentBoard,
         boardsArray,
         setBoardsArray,
-        currentTaskList,
-        setCurrentTaskList,
       }}
     >
       {props.children}
