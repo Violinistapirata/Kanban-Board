@@ -1,24 +1,40 @@
 .board-card {
-  border: 1px solid black;
+  border: 1px solid rgb(255, 255, 255);
   text-align: center;
   padding: 1rem;
 }
 
 .boards-container {
   width: 100%;
+  height: auto;
   display: flex;
-  gap: 1rem;
-}
-.dashboard {
-    padding-top: 5rem;
   justify-content: center;
-  align-items: start;
-  align-content: start;
-  flex-wrap: wrap;
+  align-items: center;
+  flex-direction: column;
 
-  article {
-    width: 70%;
+  background: #5e22a7;
+  h1 {
+    color: #5e22a7;
+    font-size: 42px;
   }
+}
+.boards-sub-container {
+  width: 95%;
+  height: 100%;
+  display: flex;
+
+  align-items: center;
+  flex-direction: column;
+  margin: 30px;
+  padding: 2rem;
+  gap: 1rem;
+  background: linear-gradient(to bottom left, #f3f3f3, 30%, #5e22a7);
+  border-top-right-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+article {
+  width: 70%;
 }
 
 .sidebar {
