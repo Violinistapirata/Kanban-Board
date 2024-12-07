@@ -89,7 +89,7 @@ function TaskDetailsPage() {
         </ul>
         <br />
         <button onClick={handleEditTask}>Edit task</button>
-        <Link to={"/"}>
+        <Link to={`/${boardId}`}>
           <button>{"<-- Back to board"}</button>
         </Link>
       </div>

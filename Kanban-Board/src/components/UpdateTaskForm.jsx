@@ -3,6 +3,7 @@ import { TaskListContext } from "../Contexts/taskLists.context";
 
 //HOOKS
 import { useContext, useState } from "react";
+import { useParams } from "react-router-dom";
 
 //STYLES
 import "./UpdateTaskForm.css";
@@ -11,7 +12,8 @@ import "./UpdateTaskForm.css";
 
 function UpdateTaskForm({ task, showForm }) {
   //taskList context props
-  const { currentTaskList, setCurrentTaskList } = useContext(TaskListContext);
+  const { boardsArray, setBoardsArray} = useContext(TaskListContext);
+  const {boardId} = useParams()
 
   //States from the form inputs
   const [inputs, setInputs] = useState({
@@ -32,12 +34,18 @@ function UpdateTaskForm({ task, showForm }) {
   //Function for the form's onSubmit event listener
   const handleUpdateTask = (e) => {
     e.preventDefault();
-
+    const currentBoard = boardsArray.find(board => board.id === boardId)
+    const currentBoardIndex = boardsArray.indexOf(currentBoard)
+    const currentTaskList = currentBoard.taskList
+    console.log(currentBoard.taskList);
     const taskIndex = currentTaskList.indexOf(task);
     const updatedTaskList = [...currentTaskList];
 
     updatedTaskList.splice(taskIndex, 1, updatedTask);
-    setCurrentTaskList(updatedTaskList);
+    const newBoard = {...currentBoard, taskList: updatedTaskList}
+    const boardsArrayCopy = [...boardsArray]
+    boardsArrayCopy.splice(currentBoardIndex, 1, newBoard)
+    setBoardsArray(boardsArrayCopy);
     showForm(false);
   };
 
