@@ -11,7 +11,7 @@ h2{
 
 .task-container{
     border-top-right-radius: 15px;
-    background-color: #ffffff;
+    background-color: #dabeff;
     padding: 10px 0px 20px 15px;
     box-shadow: 4px -1px 1px #7f669e;
     position: relative;
@@ -20,13 +20,13 @@ h2{
     
     img{
         width: 20px;
-        background-color:#ffffff;
+        background-color:#dabeff;
     }
 
     .delete-task-button {
         
         
-    background: #ffffff;
+    background: #dabeff;
         margin-right: 10px;
         border: none;
         border-radius: 4px;

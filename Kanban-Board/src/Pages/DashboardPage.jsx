@@ -16,7 +16,10 @@ function DashboardPage() {
   const { boardsArray } = useContext(TaskListContext);
 
   return (
-    <div className="boards-container dashboard">
+    <div className="boards-container">
+    
+    <div className="boards-sub-container">
+    <h1>MY BOARDS</h1>
       {boardsArray.map((board) => {
         return (
           <article key={board.id} className="board-card">
@@ -27,6 +30,7 @@ function DashboardPage() {
         );
       })}
       {/* {boardsArray.map(board => <CurrentBoard key={board.id} taskList={board.taskList} /> )} */}
+      </div>
     </div>
   );
 }

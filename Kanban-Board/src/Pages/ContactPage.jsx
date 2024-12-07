@@ -1,14 +1,21 @@
+//STYLES
+import "./ContactPage.css";
+
+
+
 function ContactPage() {
   return (
     <>
+      <section id="contact-container">
+      <div id="contact-sub-container">
       <h1>CONTACT</h1>
 
       <p>
         Para más información, proyectos, cookies y demás puedes contactar con
         nosotros en...
       </p>
-
-      <article>
+    
+      <article id="eric-contact">
         <h3>Èric Masip</h3>
 
         <a
@@ -17,7 +24,7 @@ function ContactPage() {
           rel="noopener noreferrer"
         >
           <img src="../src/images/github-icon.svg" alt="github icon" />
-          Violinistapirata
+          <p>Violinistapirata</p>
         </a>
 
         <a
@@ -26,7 +33,7 @@ function ContactPage() {
           rel="noopener noreferrer"
         >
           <img src="../src/images/linkedin-app-icon.svg" alt="linkedin icon" />
-          Èric Masip Vilalta
+          <p>Èric Masip Vilalta</p>
         </a>
 
         <a
@@ -35,10 +42,10 @@ function ContactPage() {
           rel="noopener noreferrer"
         >
           <img src="../src/images/gmail-icon.svg" alt="gmail icon" />
-          ericmasipvilalta@gmail.com
+          <p> ericmasipvilalta@gmail.com</p>
         </a>
       </article>
-      <article>
+      <article id="tomas-contact">
         <h3>Tomás Martín</h3>
         <a
           href="https://github.com/tmartin87"
@@ -46,15 +53,19 @@ function ContactPage() {
           rel="noopener noreferrer"
         >
           <img src="../src/images/github-icon.svg" alt="github icon" />
-          tmartin87
+          <p> tmartin87</p>
         </a>
         <a href="http://" target="_blank" rel="noopener noreferrer">
           <img src="../src/images/linkedin-app-icon.svg" alt="linkedin icon" />
+          <p>Tomás Martín</p>
         </a>
         <a href="mailto:" target="_blank" rel="noopener noreferrer">
           <img src="../src/images/gmail-icon.svg" alt="gmail icon" />
+          <p>tmartindsgn@gmail.com</p>
         </a>
       </article>
+      </div>
+      </section>
     </>
   );
 }
