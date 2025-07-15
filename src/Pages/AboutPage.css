@@ -81,11 +81,11 @@
 }
 
 .eric {
-  background-image: url("../images/eric-profile-img.JPG");
+  background-image: url("../src/images/eric-profile-img.JPG");
 }
 
 .tomas {
-  background-image: url("../images/tomas-profile-img.JPG");
+  background-image: url("../src/images/tomas-profile-img.JPG");
 }
 
 #eric-profile,
