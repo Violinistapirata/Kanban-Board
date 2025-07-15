@@ -22,3 +22,9 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Sensible data
+
+developers.jpg
+ERIC.png
+TOMAS.png

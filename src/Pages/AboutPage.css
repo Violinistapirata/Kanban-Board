@@ -71,6 +71,23 @@
   padding-bottom: 3rem; 
 }
 
+.profile-img {
+  width: 10em;
+  height: 10em;
+  border-radius: 50%;
+  overflow: hidden;
+  background-size: cover;
+  margin-bottom: 1rem;
+}
+
+.eric {
+  background-image: url("../images/eric-profile-img.JPG");
+}
+
+.tomas {
+  background-image: url("../images/tomas-profile-img.JPG");
+}
+
 #eric-profile,
 #tomas-profile {
   display: flex;
@@ -81,7 +98,7 @@
   margin: 0 2rem; 
 }
 
-#eric-profile img {
+/* #eric-profile img {
   width: 30%; 
 
   margin-bottom: 1rem;
@@ -92,7 +109,7 @@
   max-width: 200px; 
 
   margin-bottom: 1rem;
-}
+} */
 
 #eric-profile h3,
 #tomas-profile h3 {
