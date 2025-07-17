@@ -1,4 +1,5 @@
 import "./AboutPage.css";
+import ericProfileImg from "../images/eric-profile-img.JPG";
 
 function AboutPage() {
   return (
@@ -22,8 +23,8 @@ function AboutPage() {
           <div className="profiles-container">
             <article id="eric-profile">
               <h3>Èric Masip Vilalta - El Violinista Pirata</h3>
-              <div className="profile-img eric">
-                <img src="../src/images/eric-profile-img.JPG" alt="Èric Masip Vilalta - El Violinista Pirata" />
+              <div className="profile-img eric" style={{backgroundImage:`url(${ericProfileImg})`}}>
+                {/* <img src="../src/images/eric-profile-img.JPG" alt="Èric Masip Vilalta - El Violinista Pirata" /> */}
               </div>
               <p>
                 Empecé en el mundo de la música desde los 3 años. He estudiado y
@@ -55,7 +56,7 @@ function AboutPage() {
             <article id="tomas-profile">
               <h3>Tomás Martín</h3>
               <div className="profile-img tomas"></div>
-              <img src="../src/images/tomas-profile-img.jpg" alt="Tomás Martín" />
+              {/* <img src="../src/images/tomas-profile-img.jpg" alt="Tomás Martín" /> */}
               <p>
                 ¡Hola! Mi nombre es Tomás Martín y me apasiona el diseño, la
                 animación y, más recientemente, el desarrollo web. Estudié{" "}
