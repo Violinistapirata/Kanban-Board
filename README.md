@@ -24,13 +24,8 @@ Responsive design
 
 ### Èric Masip 
 
-I’ve been playing the violin for over 20 years, which has taught me
-discipline, teamwork skills, and an eye for detail. Today, my
-passion is web development: after completing Ironhack, I trained as
-a MERN Fullstack Developer, mastering HTML, CSS, JavaScript,
-Node.js, React, Git/GitHub, OOP, TDD, and MongoDB. I love continuing
-to learn and build new things. Outside of coding, I enjoy board
-games 🎲, anime 👘, Latin dances 💃, and baking 🍪.
+With a background in music and education, Èric started his studies on fullstack web development at Ironhack Spain, in Barcelona, where he learnt the fundamentals of programming and developed several projects using technologies like HTML, CSS, JavaScript, Git/GitHub,
+Node.js, React, Express.js, MongoDB and more. He works using methodologies like OOP, TDD, mobile-first approach and responsive design. He continues to learn every day, mastering new technologies and frameworks always following best principles to offer the best solutions.
 
 Check my [LinkedIn](https://www.linkedin.com/in/eric-masip-web-dev/) / [GitHub](https://github.com/Violinistapirata)
 
