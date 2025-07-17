@@ -1,5 +1,4 @@
 import "./AboutPage.css";
-import ericProfileImg from "../images/eric-profile-img.JPG";
 
 function AboutPage() {
   return (
@@ -23,7 +22,7 @@ function AboutPage() {
           <div className="profiles-container">
             <article id="eric-profile">
               <h3>Èric Masip Vilalta - El Violinista Pirata</h3>
-              <div className="profile-img eric" style={{backgroundImage:`url(${ericProfileImg})`}}>
+              <div className="profile-img eric">
                 {/* <img src="../src/images/eric-profile-img.JPG" alt="Èric Masip Vilalta - El Violinista Pirata" /> */}
               </div>
               <p>
