@@ -1,7 +1,5 @@
 //HOOKS
 import { NavLink } from "react-router-dom"; 
-//IMAGES
-import Logo from "../images/LOGO.png";
 
 //STYLES
 import "./NavBar.css";
@@ -12,7 +10,7 @@ function NavBar() {
       <ul className="navbar-container">
         <NavLink to="/">
           <li className="logo">
-            <img src={Logo} alt="Logo" />
+            <img src="/images/LOGO.png" alt="Logo" />
           </li>
         </NavLink>
         <li>
