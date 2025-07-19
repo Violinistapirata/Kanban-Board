@@ -13,8 +13,8 @@ function TaskListProviderWrapper(props) {
   
 
   useEffect(() => {
-    setBoardsArray([
-      { id: "1", name: "board 1", taskList: KanbanJson },
+    setBoardsArray([KanbanJson[0]
+      /* { id: "1", name: "board 1", taskList: KanbanJson },
       {
         id: "2",
         name: "board 2",
@@ -33,7 +33,7 @@ function TaskListProviderWrapper(props) {
         ],
       },
       { id: "3", name: "board 3",taskList: [] },
-      
+       */
     ]);
     // Instead, if we have a backend database with the boards data we could fetch it like this when the app mounts
     /*  
