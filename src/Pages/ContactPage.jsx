@@ -23,7 +23,7 @@ function ContactPage() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <img src="../src/images/github-icon.svg" alt="github icon" />
+          <img src="/images/github-icon.svg" alt="github icon" />
           <p>Violinistapirata</p>
         </a>
 
@@ -32,7 +32,7 @@ function ContactPage() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <img src="../src/images/linkedin-app-icon.svg" alt="linkedin icon" />
+          <img src="/images/linkedin-app-icon.svg" alt="linkedin icon" />
           <p>Èric Masip Vilalta</p>
         </a>
 
@@ -41,7 +41,7 @@ function ContactPage() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <img src="../src/images/gmail-icon.svg" alt="gmail icon" />
+          <img src="/images/gmail-icon.svg" alt="gmail icon" />
           <p> ericmasipvilalta@gmail.com</p>
         </a>
       </article>
@@ -52,15 +52,15 @@ function ContactPage() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <img src="../src/images/github-icon.svg" alt="github icon" />
+          <img src="/images/github-icon.svg" alt="github icon" />
           <p> tmartin87</p>
         </a>
         <a href="http://" target="_blank" rel="noopener noreferrer">
-          <img src="../src/images/linkedin-app-icon.svg" alt="linkedin icon" />
+          <img src="/images/linkedin-app-icon.svg" alt="linkedin icon" />
           <p>Tomás Martín</p>
         </a>
         <a href="mailto:" target="_blank" rel="noopener noreferrer">
-          <img src="../src/images/gmail-icon.svg" alt="gmail icon" />
+          <img src="/images/gmail-icon.svg" alt="gmail icon" />
           <p>tmartindsgn@gmail.com</p>
         </a>
       </article>

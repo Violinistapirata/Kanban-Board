@@ -28,7 +28,7 @@ function App() {
         <SideBar />
         <Routes>
           <Route path="/" element={<DashboardPage />} />
-          <Route path="/:boardId" element={<CurrentBoard />} />
+          <Route path="/current-board/:boardId" element={<CurrentBoard />} />
           <Route path="/details/:boardId/:taskId" element={<TaskDetailsPage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/contact" element={<ContactPage />} />

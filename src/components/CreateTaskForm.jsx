@@ -37,7 +37,9 @@ function CreateTaskForm({
   function handleAddTask(e) {
     e.preventDefault();
     const newTaskList = [...currentTaskList, newTask];
-    setCurrentTaskList(newTaskList);
+    console.log("BEFORE SETCURRENTTASKLIST", currentTaskList);
+    setCurrentTaskList(() => newTaskList);
+    console.log("AFTER SETCURRENTTASKLIST", currentTaskList);
     const newBoard = { ...currentBoard, taskList: newTaskList };
     console.log(boardsArray);
     const currentBoardIndex = boardsArray.indexOf(
