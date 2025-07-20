@@ -23,8 +23,7 @@ function CurrentBoard() {
   const selectedBoard = boardsArray.find((board) => board.id == boardId);
   const [currentBoard, setCurrentBoard] = useState(selectedBoard);
   const [currentTaskList, setCurrentTaskList] = useState(currentBoard.taskList);
-  currentBoard !== selectedBoard && setCurrentBoard(selectedBoard);
-
+  
   //State for the Add-task form 
   const [showCreateTaskForm, setShowCreateTaskForm] = useState(false);
 
@@ -64,6 +63,15 @@ function CurrentBoard() {
     setCurrentTaskList(currentTaskList); 
     localStorage.setItem("boardsArray", JSON.stringify(updatedBoardsArray));
   }, [currentTaskList, currentBoard, boardsArray]);
+
+  // Update the current board when the boardId changes
+  useEffect(() => {
+    const updatedBoard = boardsArray.find((board) => board.id == boardId);
+    if (updatedBoard) {
+      setCurrentBoard(updatedBoard);
+      setCurrentTaskList(updatedBoard.taskList);
+    }
+  }, [boardId, boardsArray]);
 
   return (
     <div className="current-board-container">
