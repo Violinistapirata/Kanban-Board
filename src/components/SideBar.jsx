@@ -27,7 +27,7 @@ function SideBar() {
           );
         })}
       </div>
-      <h2>ARCHIVED BOARDS</h2>
+      {/* <h2>ARCHIVED BOARDS</h2> */}
     </ul>
   );
 }
