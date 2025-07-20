@@ -55,7 +55,7 @@
         "status": "Done",
         "priority": "Low",
         "createdDate": "2023-09-19",
-        "dueDate": "2023-09-30",
+        "dueDate": "",
         "isArchived": false
       },
       {
@@ -66,7 +66,7 @@
         "status": "Done",
         "priority": "Low",
         "createdDate": "2023-09-19",
-        "dueDate": "2023-09-30",
+        "dueDate": "",
         "isArchived": true
       },
       {
@@ -77,18 +77,29 @@
         "status": "To Do",
         "priority": "Low",
         "createdDate": "2023-09-19",
-        "dueDate": "2023-09-30",
+        "dueDate": "",
         "isArchived": false
       },
       {
         "id": "8",
+        "title": "Create your first board",
+        "description": "To create a new board, click on the 'Create Board' button in the sidebar. You can name your board and start adding tasks to it. Each board can have its own set of tasks, and you can switch between boards easily through the sidebar. This allows you to organize your tasks by different projects or categories.",
+        "assignee": "You",
+        "status": "To Do",
+        "priority": "Low",
+        "createdDate": "2023-09-19",
+        "dueDate": "",
+        "isArchived": false
+      },
+      {
+        "id": "9",
         "title": "Final task: Archive this board",
         "description": "To conclude the tutorial, you can archive this board by clicking on the 'Archive Board' button on the right-bottom corner. This will move the board to the 'Archived Boards' section, where you can view it later or delete it if you wish. You can also archive boards by dragging them to the 'Archived Boards' section in the sidebar. ",
         "assignee": "You",
         "status": "To Do",
         "priority": "Low",
         "createdDate": "2023-09-19",
-        "dueDate": "2023-09-30",
+        "dueDate": "",
         "isArchived": false
       }
     ],
@@ -106,7 +117,7 @@
         "status": "To Do",
         "priority": "High",
         "createdDate": "2023-09-15",
-        "dueDate": "2023-09-30",
+        "dueDate": "",
         "isArchived": false
       }
     ],
