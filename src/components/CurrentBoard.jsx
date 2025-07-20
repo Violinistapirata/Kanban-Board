@@ -23,7 +23,7 @@ function CurrentBoard() {
   const selectedBoard = boardsArray.find((board) => board.id == boardId);
   const [currentBoard, setCurrentBoard] = useState(selectedBoard);
   const [currentTaskList, setCurrentTaskList] = useState(currentBoard.taskList);
-  
+
   //State for the Add-task form 
   const [showCreateTaskForm, setShowCreateTaskForm] = useState(false);
 

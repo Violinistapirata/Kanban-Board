@@ -8,7 +8,7 @@ import "./List.css";
 
 function List({listStatus, taskList, setTaskList, currentBoard}) {
 
-  const filteredTasks = () => taskList.filter(task => task.status === listStatus)
+  const filteredTasks = () => taskList.filter(task => task.status === listStatus);
   
   return (
     <>

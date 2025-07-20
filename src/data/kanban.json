@@ -1,75 +1,115 @@
 [
   {
     "id": "board1",
-    "name": "Project Kanban Board (EXAMPLE)",
+    "name": "Kanban Board Tutorial",
     "taskList": [
       {
         "id": "1",
-        "title": "Design Landing Page",
-        "description": "Create a visually appealing landing page for the website.",
-        "assignee": "Mary Davis",
+        "title": "This is a sample task. If you click on it, you can see more details and even update it!",
+        "description": "Here you have a detailed description of the task. If you click on the Edit button below you can update all the information about the task. Go ahead and change the title of this task to 'finish the tutorial'. Then you can drag and drop this task to the 'In Progress' column.",
+        "assignee": "Here you can assign the task to someone. It's optional, but it helps to know who is responsible for the task.",
         "status": "To Do",
-        "priority": "High",
+        "priority": "You can also set a priority for the task (e.g., High, Medium, Low)",
         "createdDate": "2023-09-15",
-        "dueDate": "2023-09-30"
+        "dueDate": "You can even set a due date for the task, like 2023-10-01",
+        "isArchived": false
       },
       {
         "id": "2",
-        "title": "Develop User Registration",
-        "description": "Implement user registration functionality with email verification.",
-        "assignee": "Jane Smith",
+        "title": "Move this task to the 'Done' column and see how the status changes.",
+        "description": "The status of the task will automatically update when you move it to a different column. Click on it to see the details. You can also change the status manually by editing the task if needed.",
+        "assignee": "You",
         "status": "In Progress",
-        "priority": "Medium",
+        "priority": "Low",
         "createdDate": "2023-09-16",
-        "dueDate": "2023-10-10"
+        "dueDate": "2023-10-10",
+        "isArchived": false
       },
       {
         "id": "3",
-        "title": "Bug Fix: Login Issue",
-        "description": "Investigate and fix the login problem reported by users.",
-        "assignee": "Mark Johnson",
-        "status": "In Progress",
+        "title": "Delete this task to see how it disappears from the board.",
+        "description": "The trash icon allows you to delete the task. Once deleted, it will no longer appear on the board. Be careful when deleting tasks!",
+        "assignee": "You",
+        "status": "To do",
         "priority": "High",
         "createdDate": "2023-09-17",
-        "dueDate": "2023-09-25"
+        "dueDate": "",
+        "isArchived": false
       },
       {
         "id": "4",
-        "title": "Release Version 1.0",
-        "description": "Prepare for the release of the first version of the application.",
-        "assignee": "Sarah Brown",
+        "title": "Create a new task by clicking the 'Add Task' button at the end of the 'To Do' column.",
+        "description": "You can add as many tasks as you need. Each task can have its own title, details, assignee, status, priority and due date.",
+        "assignee": "You",
         "status": "To Do",
-        "priority": "High",
+        "priority": "Medium",
         "createdDate": "2023-09-18",
-        "dueDate": "2023-10-05"
+        "dueDate": "2023-10-05",
+        "isArchived": false
       },
       {
         "id": "5",
-        "title": "Update Documentation",
-        "description": "Update user documentation with the latest features and changes.",
-        "assignee": "David Wilson",
+        "title": "Archive this task to see how it moves to the 'Archived Tasks' tab.",
+        "description": "You can archive a task by clicking on the archive icon. The archive icon only appears when a task is in the 'Done' column. Archived tasks are not deleted but moved to a separate section. It helps to keep the board clean while retaining the history of completed tasks. You can view archived tasks anytime clicking on the 'Archived' tab.",
+        "assignee": "You",
         "status": "Done",
         "priority": "Low",
         "createdDate": "2023-09-19",
-        "dueDate": "2023-09-30"
+        "dueDate": "2023-09-30",
+        "isArchived": false
+      },
+      {
+        "id": "6",
+        "title": "Take this task back from the archive and see how it moves to the 'Board' tab.",
+        "description": "Archived tasks can not be edited or moved to other columns. To do so you have to return them to the main board by clicking on the 'Unarchive' button. The task will reappear in the 'Done' column of the Board. This is useful if you need to revisit a completed task or if it requires further action.",
+        "assignee": "You",
+        "status": "Done",
+        "priority": "Low",
+        "createdDate": "2023-09-19",
+        "dueDate": "2023-09-30",
+        "isArchived": true
+      },
+      {
+        "id": "7",
+        "title": "Delete the board in the 'Archived Boards' section",
+        "description": "You can only delete a board from the 'Archived Boards' section. To do so, click on the board and then click on the 'Delete Board' button. This action is irreversible, so make sure you really want to delete the board before proceeding.",
+        "assignee": "You",
+        "status": "To Do",
+        "priority": "Low",
+        "createdDate": "2023-09-19",
+        "dueDate": "2023-09-30",
+        "isArchived": false
+      },
+      {
+        "id": "8",
+        "title": "Final task: Archive this board",
+        "description": "To conclude the tutorial, you can archive this board by clicking on the 'Archive Board' button on the right-bottom corner. This will move the board to the 'Archived Boards' section, where you can view it later or delete it if you wish. You can also archive boards by dragging them to the 'Archived Boards' section in the sidebar. ",
+        "assignee": "You",
+        "status": "To Do",
+        "priority": "Low",
+        "createdDate": "2023-09-19",
+        "dueDate": "2023-09-30",
+        "isArchived": false
       }
-    ]
+    ],
+    "isArchived": false
   },
   {
-    "id": "2",
-    "name": "board 2",
+    "id": "board2",
+    "name": "This board can be deleted",
     "taskList": [
       {
         "id": "1",
-        "title": "Design Landing Page",
-        "description": "Create a visually appealing landing page for the website.",
+        "title": "Delete this board once and for all",
+        "description": "Don't hesitate and delete this whole board already! You just need to click",
         "assignee": "Mary Davis",
         "status": "To Do",
         "priority": "High",
         "createdDate": "2023-09-15",
-        "dueDate": "2023-09-30"
+        "dueDate": "2023-09-30",
+        "isArchived": false
       }
-    ]
-  },
-  { "id": "3", "name": "board 3", "taskList": [] }
+    ],
+    "isArchived": true
+  }
 ]
