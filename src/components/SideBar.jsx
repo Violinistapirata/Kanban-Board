@@ -20,7 +20,7 @@ function SideBar() {
         {boardsArray.map((board) => {
           return (
             <article key={board.id} className="board-card">
-              <Link to={`/${board.id}`}>
+              <Link to={`/current-board/${board.id}`}>
                 <h2>{board.name}</h2>
               </Link>
             </article>
