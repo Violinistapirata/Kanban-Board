@@ -2,7 +2,7 @@
 import { TaskListContext } from "../Contexts/taskLists.context";
 
 //HOOKS
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useDrop } from "react-dnd";
 import { useParams } from "react-router-dom";
 
@@ -13,21 +13,19 @@ import CreateTaskForm from "./CreateTaskForm";
 //STYLES
 import "./CurrentBoard.css";
 
+
 /*-------------------------------------------------------------------*/
 
 function CurrentBoard() {
-
   //taskList context props
-  const {boardsArray} = useContext(TaskListContext)
+  const { boardsArray } = useContext(TaskListContext);
   const { boardId } = useParams();
   const selectedBoard = boardsArray.find((board) => board.id == boardId);
-  const [currentBoard, setCurrentBoard] = useState(selectedBoard)
-  const [currentTaskList, setCurrentTaskList] = useState(currentBoard.taskList)
-  currentBoard !== selectedBoard && setCurrentBoard(selectedBoard) 
-  // !currentTaskList && setCurrentTaskList(currentBoard.taskList)
+  const [currentBoard, setCurrentBoard] = useState(selectedBoard);
+  const [currentTaskList, setCurrentTaskList] = useState(currentBoard.taskList);
+  currentBoard !== selectedBoard && setCurrentBoard(selectedBoard);
 
-
-  //Add-task form state
+  //State for the Add-task form 
   const [showCreateTaskForm, setShowCreateTaskForm] = useState(false);
 
   //Drag-and-drop functionality
@@ -44,13 +42,28 @@ function CurrentBoard() {
     drop: (item) => changeTaskStatus(item.id, "Done"),
   }));
 
+  // Function to change the status of a task when dropped and update the task list
   function changeTaskStatus(taskId, newStatus) {
-    
     const droppedTask = currentTaskList.find((task) => task.id === taskId);
     droppedTask.status = newStatus;
-    
+
     setCurrentTaskList([...currentTaskList]);
   }
+
+  // Update the current board and task list in localStorage when they change
+  useEffect(() => {
+    currentBoard.taskList = currentTaskList;
+    const updatedBoardsArray = boardsArray.map((board) => {
+      if (board.id === currentBoard.id) {
+        return currentBoard;
+      }
+      return board;
+    }
+    );
+    setCurrentBoard(currentBoard);
+    setCurrentTaskList(currentTaskList); 
+    localStorage.setItem("boardsArray", JSON.stringify(updatedBoardsArray));
+  }, [currentTaskList, currentBoard, boardsArray]);
 
   return (
     <div className="current-board-container">

@@ -2,18 +2,25 @@
 import KanbanJson from "../data/kanban.json";
 
 //HOOKS
-import { createContext, useEffect } from "react";
-import { useState } from "react";
+import { createContext, useState, useEffect } from "react";
+
 /*-------------------------------------------------------------------*/
 const TaskListContext = createContext();
 
 function TaskListProviderWrapper(props) {
   const [boardsArray, setBoardsArray] = useState([]);
- 
-  
+
+  // Initialize boardsArray with KanbanJson data
 
   useEffect(() => {
-    setBoardsArray([KanbanJson[0]
+    const storedBoards = localStorage.getItem("boardsArray");
+    if (storedBoards) {
+      setBoardsArray(JSON.parse(storedBoards));
+    } else {
+      setBoardsArray(KanbanJson);
+    localStorage.setItem("boardsArray", JSON.stringify(KanbanJson));
+    }
+  }, []);
       /* { id: "1", name: "board 1", taskList: KanbanJson },
       {
         id: "2",
@@ -34,15 +41,16 @@ function TaskListProviderWrapper(props) {
       },
       { id: "3", name: "board 3",taskList: [] },
        */
-    ]);
+   
+    
     // Instead, if we have a backend database with the boards data we could fetch it like this when the app mounts
     /*  
     fetch("BACKEND URL")
     .then(response => response.json())
     .then(response => setBoardsArray(response))    
     */
-}, []);
-console.log(boardsArray);
+
+
   /* const taskListStatesArray = boardsArray.map((board) => {
     function CreateTaskListStateVariable() {
       const [taskList, setTaskList] = useState(board.taskList);

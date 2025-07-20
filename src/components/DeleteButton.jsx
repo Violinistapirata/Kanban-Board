@@ -2,7 +2,7 @@
 function DeleteButton({handleF}) {
   return (
     <button className="delete-task-button" onClick={handleF}>
-            <img src="src/images/papelera.png"></img>
+            <img src="/images/papelera.png"></img>
         </button>
   )
 }

@@ -45,9 +45,7 @@ function Task ({currentBoard, taskList, setTaskList, task}){
             </li>
             <li className="task-text">Assignee: {task.assignee}</li>
             <li className="task-text">Priority: {task.priority}</li>
-            <li><button className="delete-task-button" onClick={handleDeleteTask}>
-            <img src="/images/papelera.png"></img>
-        </button></li>
+            <li><DeleteButton handleF={handleDeleteTask} /></li>
         </ul>
     </>
     )
