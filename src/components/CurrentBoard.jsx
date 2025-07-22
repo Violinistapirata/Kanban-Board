@@ -18,11 +18,19 @@ import "./CurrentBoard.css";
 
 function CurrentBoard() {
   //taskList context props
-  const { boardsArray } = useContext(TaskListContext);
+  const { boardsArray, setBoardsArray } = useContext(TaskListContext);
+  console.log("Boards Array:", boardsArray);  
   const { boardId } = useParams();
-  const selectedBoard = boardsArray.find((board) => board.id == boardId);
+  console.log("Current Board ID:", boardId);
+
+  let selectedBoard = null;
+  boardsArray && (selectedBoard = boardsArray.find((board) => board.id === boardId)) ;
+  console.log("Selected Board:", selectedBoard);
+  
   const [currentBoard, setCurrentBoard] = useState(selectedBoard);
-  const [currentTaskList, setCurrentTaskList] = useState(currentBoard.taskList);
+  console.log("Current Board State:", currentBoard);
+  const [currentTaskList, setCurrentTaskList] = useState(currentBoard.taskList || []);
+  console.log("Current Task List State:", currentTaskList);
   
   //State for the Add-task form 
   const [showCreateTaskForm, setShowCreateTaskForm] = useState(false);
@@ -59,10 +67,10 @@ function CurrentBoard() {
       return board;
     }
     );
-    setCurrentBoard(currentBoard);
-    setCurrentTaskList(currentTaskList); 
+    // Update the boardsArray state and localStorage
+    setBoardsArray(updatedBoardsArray);
     localStorage.setItem("boardsArray", JSON.stringify(updatedBoardsArray));
-  }, [currentTaskList, currentBoard, boardsArray]);
+  }, [currentBoard, currentTaskList]);
 
   // Update the current board when the boardId changes
   useEffect(() => {

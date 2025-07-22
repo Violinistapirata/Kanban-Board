@@ -30,7 +30,7 @@
         "title": "Delete this task to see how it disappears from the board.",
         "description": "The trash icon allows you to delete the task. Once deleted, it will no longer appear on the board. Be careful when deleting tasks!",
         "assignee": "You",
-        "status": "To do",
+        "status": "To Do",
         "priority": "High",
         "createdDate": "2023-09-17",
         "dueDate": "",
