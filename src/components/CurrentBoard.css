@@ -10,7 +10,7 @@ h1 {
   display: flex;
   justify-content: start;
   align-items: start;
-  gap: 10rem;
+  gap: 4rem;
   background-color: #5e22a7;
 
 /*   .task-container {
