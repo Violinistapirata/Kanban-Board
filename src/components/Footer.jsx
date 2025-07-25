@@ -2,6 +2,7 @@
 import './Footer.css'
 
 function Footer () {
+    console.log("The Footer component has rendered");
     return (
         <ul className='footer-container'>
             <li>KANBAN BOARD</li>

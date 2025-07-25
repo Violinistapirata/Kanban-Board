@@ -6,19 +6,19 @@ import "./List.css";
 
 /*-------------------------------------------------------------------*/
 
-function List({listStatus, taskList, setTaskList, currentBoard}) {
-
-  const filteredTasks = () => taskList.filter(task => task.status === listStatus)
-  
+function List({listStatus, currentTaskList, setCurrentTaskList, currentBoard}) {
+  console.log("The List component has rendered");
+  console.log("listStatus:", listStatus, "currentTaskList:", currentTaskList, "currentBoard:", currentBoard);
+  const filteredTasks = () => currentTaskList.filter(task => task.status === listStatus);
   return (
     <>
-      {taskList &&
+      {currentTaskList &&
         filteredTasks().map((task) => (
           <Task
             key={task.id}
             currentBoard={currentBoard}
-            taskList={taskList}
-            setTaskList={setTaskList}
+            currentTaskList={currentTaskList}
+            setCurrentTaskList={setCurrentTaskList}
             task={task}
           />
         ))}

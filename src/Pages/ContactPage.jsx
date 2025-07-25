@@ -4,6 +4,7 @@ import "./ContactPage.css";
 
 
 function ContactPage() {
+  console.log("The ContactPage component has rendered");
   return (
     <>
       <section id="contact-container">

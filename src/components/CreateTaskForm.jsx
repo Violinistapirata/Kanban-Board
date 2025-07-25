@@ -15,6 +15,7 @@ function CreateTaskForm({
   setCurrentTaskList,
   currentBoard,
   }) {
+  console.log("The CreateTaskForm component has rendered");
   //States from the form inputs
   const { boardsArray, setBoardsArray } = useContext(TaskListContext);
   const {boardId} = useParams()

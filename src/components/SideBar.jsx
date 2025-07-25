@@ -12,7 +12,7 @@ import "./SideBar.css";
 
 function SideBar() {
   const { boardsArray } = useContext(TaskListContext);
-
+  console.log("The SideBar component has rendered");
   return (
     <ul className="SideBar-container">
       <h2>MY BOARDS</h2>

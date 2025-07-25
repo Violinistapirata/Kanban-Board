@@ -5,6 +5,7 @@ import { NavLink } from "react-router-dom";
 import "./NavBar.css";
 
 function NavBar() {
+  console.log("The NavBar component has rendered");
   return (
     <nav>
       <ul className="navbar-container">

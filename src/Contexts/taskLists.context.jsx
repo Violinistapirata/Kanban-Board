@@ -27,7 +27,7 @@ function TaskListProviderWrapper(props) {
   useEffect(() => {
     localStorage.setItem("boardsArray", JSON.stringify(boardsArray));
   }, [boardsArray]);
-
+  console.log("The taskList.context component has rendered");
   // Instead, if we have a backend database with the boards data we could fetch it like this when the app mounts
   /*  
     fetch("BACKEND URL")

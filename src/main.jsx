@@ -20,7 +20,7 @@ import "./index.css";
 
 /*-------------------------------------------------------------------*/
 
-
+console.log("The main component has rendered");
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <Router>

@@ -1,6 +1,7 @@
 import "./AboutPage.css";
 
 function AboutPage() {
+  console.log("The AboutPage component has rendered");
   return (
     <section id="about">
       <div className="about-container">

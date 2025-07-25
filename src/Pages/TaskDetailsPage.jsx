@@ -15,6 +15,7 @@ import { TaskListContext } from "../Contexts/taskLists.context";
 /*-------------------------------------------------------------------*/
 
 function TaskDetailsPage() {
+  console.log("The TaskDetailsPage component has rendered");
   const [showUpdateTaskForm, setShowUpdateTaskForm] = useState(false);
   //taskList context props
   const { boardsArray } = useContext(TaskListContext);

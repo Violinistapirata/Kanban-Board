@@ -11,6 +11,7 @@ import "./UpdateTaskForm.css";
 /*-------------------------------------------------------------------*/
 
 function UpdateTaskForm({ task, showForm }) {
+  console.log("The updateTaskForm component has rendered");
   //taskList context props
   const { boardsArray, setBoardsArray} = useContext(TaskListContext);
   const {boardId} = useParams()

@@ -20,7 +20,7 @@ import "./App.css";
 /*-------------------------------------------------------------------*/
 
 function App() { 
-
+  console.log("The App component has rendered");
   return (
     <main>
       <NavBar />

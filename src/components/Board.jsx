@@ -1,5 +1,5 @@
-class Board () {
+/* class Board () {
     constructor(){
         
     }
-}
+} */

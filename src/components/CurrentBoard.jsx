@@ -17,17 +17,14 @@ import "./CurrentBoard.css";
 /*-------------------------------------------------------------------*/
 
 function CurrentBoard() {
+  console.log("The CurrentBoard component has rendered");
   //taskList context props
   const { boardsArray, setBoardsArray } = useContext(TaskListContext);
   console.log("Boards Array:", boardsArray);  
   const { boardId } = useParams();
   console.log("Current Board ID:", boardId);
-
-  let selectedBoard = null;
-  boardsArray && (selectedBoard = boardsArray.find((board) => board.id === boardId)) ;
-  console.log("Selected Board:", selectedBoard);
-  
-  const [currentBoard, setCurrentBoard] = useState(selectedBoard);
+  const selectedBoard = boardsArray.find((board) => board.id === boardId);
+  const [currentBoard, setCurrentBoard] = useState(selectedBoard || {});
   console.log("Current Board State:", currentBoard);
   const [currentTaskList, setCurrentTaskList] = useState(currentBoard.taskList || []);
   console.log("Current Task List State:", currentTaskList);
@@ -51,15 +48,36 @@ function CurrentBoard() {
 
   // Function to change the status of a task when dropped and update the task list
   function changeTaskStatus(taskId, newStatus) {
-    const droppedTask = currentTaskList.find((task) => task.id === taskId);
+    setCurrentTaskList(prevTaskList =>
+    prevTaskList.map(task =>
+      task.id === taskId ? { ...task, status: newStatus } : task
+    )
+  );
+    /* const droppedTask = currentTaskList.find((task) => task.id === taskId);
+    console.log("CurrentTaskList:", currentTaskList);
+    console.log("Dropped Task:", droppedTask);
+    if (!droppedTask) {
+      console.error("Task not found:", taskId);
+      return;
+    }
     droppedTask.status = newStatus;
-
-    setCurrentTaskList([...currentTaskList]);
+    console.log("Updated Task:", droppedTask);
+    setCurrentTaskList([...currentTaskList]); */
   }
 
+  // Effect to set the current board and task list based on the boardId from the URL
+  /* useEffect(() => {
+  
+  console.log("Selected Board:", selectedBoard);
+  setCurrentBoard(selectedBoard || {});
+  setCurrentTaskList(selectedBoard ? selectedBoard.taskList : []);
+  }, [boardId, boardsArray]); */
+  
   // Update the current board and task list in localStorage when they change
   useEffect(() => {
+    console.log("The useEffect that updates boardsArray has run");
     currentBoard.taskList = currentTaskList;
+    console.log("Updated Current Board:",currentBoard, currentBoard.taskList);
     const updatedBoardsArray = boardsArray.map((board) => {
       if (board.id === currentBoard.id) {
         return currentBoard;
@@ -70,16 +88,16 @@ function CurrentBoard() {
     // Update the boardsArray state and localStorage
     setBoardsArray(updatedBoardsArray);
     localStorage.setItem("boardsArray", JSON.stringify(updatedBoardsArray));
-  }, [currentBoard, currentTaskList]);
+  }, [currentTaskList]);
 
   // Update the current board when the boardId changes
   useEffect(() => {
-    const updatedBoard = boardsArray.find((board) => board.id == boardId);
-    if (updatedBoard) {
-      setCurrentBoard(updatedBoard);
-      setCurrentTaskList(updatedBoard.taskList);
+    if (selectedBoard) {
+      setCurrentBoard(selectedBoard);
+      setCurrentTaskList(selectedBoard.taskList || []);
+      console.log("Current Board and Task List updated based on boardId:", boardId);
     }
-  }, [boardId, boardsArray]);
+  }, [boardId, selectedBoard]);
 
   return (
     <div className="current-board-container">
@@ -88,8 +106,8 @@ function CurrentBoard() {
         <div className="task-scroll" ref={drop}>
           <List
             listStatus="To Do"
-            taskList={currentTaskList}
-            setTaskList={setCurrentTaskList}
+            currentTaskList={currentTaskList}
+            setCurrentTaskList={setCurrentTaskList}
             currentBoard={currentBoard}
           />
         </div>
@@ -106,8 +124,8 @@ function CurrentBoard() {
         <div className="task-scroll" ref={drop2}>
           <List
             listStatus="In Progress"
-            taskList={currentTaskList}
-            setTaskList={setCurrentTaskList}
+            currentTaskList={currentTaskList}
+            setCurrentTaskList={setCurrentTaskList}
             currentBoard={currentBoard}
           />
         </div>
@@ -118,8 +136,8 @@ function CurrentBoard() {
         <div className="task-scroll" ref={drop3}>
           <List
             listStatus="Done"
-            taskList={currentTaskList}
-            setTaskList={setCurrentTaskList}
+            currentTaskList={currentTaskList}
+            setCurrentTaskList={setCurrentTaskList}
             currentBoard={currentBoard}
           />
         </div>

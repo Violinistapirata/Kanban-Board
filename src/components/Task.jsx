@@ -13,7 +13,9 @@ import './Task.css';
 import DeleteButton from "./DeleteButton"
 /*-------------------------------------------------------------------*/
 
-function Task ({currentBoard, taskList, setTaskList, task}){
+function Task ({currentBoard, currentTaskList, setCurrentTaskList, task}){
+    console.log("The Task component has rendered");
+    console.log("Task Details:", task, "Current Board:", currentBoard, "Current Task List:", currentTaskList);
 
     //taskList context props
     // const {currentBoard, setCurrentBoard} = useContext(TaskListContext)
@@ -31,8 +33,8 @@ function Task ({currentBoard, taskList, setTaskList, task}){
         //Handle function for the delete task button
         function handleDeleteTask () {
            const taskId = task.id;
-           const newTaskList = taskList.filter((task)=>task.id !== taskId);
-           setTaskList(newTaskList);
+           const updatedTaskList = currentTaskList.filter((task)=>task.id !== taskId);
+           setCurrentTaskList(updatedTaskList);
        }
 
     return (

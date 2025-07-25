@@ -13,6 +13,7 @@ import { useContext } from "react";
 /*-------------------------------------------------------------------*/
 
 function DashboardPage() {
+  console.log("The DashboardPage component has rendered");
   const { boardsArray } = useContext(TaskListContext);
 
   return (
