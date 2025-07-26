@@ -1,83 +1,64 @@
-.create-task-container{
-    position: absolute;
-    float: right;
-    padding: 1rem;
-   
-
-    
+.create-task-container {
+  position: absolute;
+  float: right;
+  padding: 1rem;
 }
 
-  form{
-    background-color: #f9f9f9;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    border-top-right-radius: 15px;
-    width: 100%;
-    padding: 10px;
-  }
-  
-  form label {
-    display: block;
-    margin-bottom: 6px;
-    font-weight: bold;
-    color:#b786ef;
-  }
-  
-  form input,
-  form textarea,
-  form select {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 14px;
-  }
-  
-  
-  
-  form button {
-    padding: 10px 15px;
-    margin-right: 10px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 14px;
-    font-weight: bold;
-  }
-  
-  form button[type="submit"] {
-    background-color: #7d2ce0;
-    color: white;
-  }
-  
-  form button[type="submit"]:hover {
-    background-color: #913afc;
-  }
+form {
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  border-top-right-radius: 15px;
+  width: 100%;
+  padding: 10px;
+}
 
-  #x{
-    position: absolute; 
-    top: 0; 
-    right: 0;
-    margin: 20px 20px 5px 10px;
-    font-size: 10px;
-    width: 12px;
-    height: 12px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-   
+form label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: bold;
+  color: #b786ef;
+}
 
-  }
-  
+form input,
+form textarea,
+form select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
 
- 
-  
-  
-  
-  
-  
- 
-  
+form button {
+  padding: 10px 15px;
+  margin-right: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+}
 
+form button[type="submit"] {
+  background-color: #7d2ce0;
+  color: white;
+}
 
+form button[type="submit"]:hover {
+  background-color: #913afc;
+}
+
+#x {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 20px 20px 5px 10px;
+  font-size: 10px;
+  width: 12px;
+  height: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
