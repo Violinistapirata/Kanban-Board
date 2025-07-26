@@ -5,14 +5,23 @@ import { Link } from "react-router-dom";
 import { TaskListContext } from "../Contexts/taskLists.context";
 
 //HOOKS
-import { useContext } from "react";
+import { useState, useContext } from "react";
+
+//COMPONENTS
+import CreateBoardForm from "./CreateBoardForm";
 
 //STYLES
 import "./SideBar.css";
 
+/*-------------------------------------------------------------------*/
+
 function SideBar() {
   const { boardsArray } = useContext(TaskListContext);
   console.log("The SideBar component has rendered");
+
+  // State for the Add-board form
+  const [showForm, setShowForm] = useState(false);
+
   return (
     <ul className="SideBar-container">
       <h2>MY BOARDS</h2>
@@ -27,6 +36,8 @@ function SideBar() {
           );
         })}
       </div>
+      {showForm && <CreateBoardForm setShowForm={setShowForm}/>}
+      <button className="create-board-button" onClick={() => setShowForm(true)}>Add New Board</button>
       {/* <h2>ARCHIVED BOARDS</h2> */}
     </ul>
   );

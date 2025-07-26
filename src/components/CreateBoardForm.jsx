@@ -4,7 +4,7 @@ import "./CreateBoardForm.css";
 
 /*-------------------------------------------------------------------*/
 
-function CreateBoardForm() {
+function CreateBoardForm({ setShowForm }) {
   console.log("The CreateBoardForm component has rendered");
 
   const { setBoardsArray } = useContext(TaskListContext);
@@ -16,7 +16,7 @@ function CreateBoardForm() {
   function createBoard(boardName) {
     return {
       id: crypto.randomUUID(),
-      boardName: boardName,
+      name: boardName,
       taskList: [],
       isArchived: false,
     };
@@ -29,10 +29,11 @@ function CreateBoardForm() {
     const newBoard = createBoard(boardName);
     setBoardsArray((prevBoards) => [...prevBoards, newBoard]);
     setBoardName(""); // Reset the input field
+    setShowForm(false); // Close the form after submission
   };
 
   return (
-    <form onSubmit={handleSubmit} className="create-board-form hidden">
+    <form onSubmit={handleSubmit} className="create-board-form">
       <input
         type="text"
         value={boardName}
