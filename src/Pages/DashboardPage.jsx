@@ -27,6 +27,7 @@ function DashboardPage() {
     
     <div className="boards-sub-container">
     <h1>MY BOARDS</h1>
+    <div className="dashboard__boards-scroll">
       {boardsArray.map((board) => {
         return (
           <article key={board.id} className="board-card">
@@ -37,6 +38,7 @@ function DashboardPage() {
         );
       })}
       {/* {boardsArray.map(board => <CurrentBoard key={board.id} taskList={board.taskList} /> )} */}
+      </div>
       {showForm && <CreateBoardForm setShowForm={setShowForm}/>}
       <button className="create-board-button" onClick={() => setShowForm(true)}>Add New Board</button>
       </div>

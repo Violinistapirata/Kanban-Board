@@ -23,6 +23,7 @@ function App() {
   console.log("The App component has rendered");
   return (
     <main>
+      <div className="app">     
       <NavBar />
       <div className="central-section">
         <SideBar />
@@ -36,6 +37,7 @@ function App() {
         </Routes>
       </div>
       <Footer />
+      </div>
     </main>
   );
 }

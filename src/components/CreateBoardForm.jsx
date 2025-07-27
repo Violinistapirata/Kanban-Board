@@ -42,6 +42,7 @@ function CreateBoardForm({ setShowForm }) {
         required
       />
       <button type="submit">Create Board</button>
+      <button type="button" onClick={() => setShowForm(false)}>Cancel</button>
     </form>
   );
 }
