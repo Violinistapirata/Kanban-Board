@@ -8,7 +8,7 @@ function ContactPage() {
   return (
     <>
       <section id="contact-container">
-      <div id="contact-sub-container" className="contact-page__scroll">
+      <div id="contact-sub-container">
       <h1>CONTACT</h1>
 
       <p>
