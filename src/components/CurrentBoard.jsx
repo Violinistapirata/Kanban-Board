@@ -101,7 +101,7 @@ function CurrentBoard() {
 
   return (
     <div className="current-board-container">
-      <div>
+      <div className="list-container">
         <h1>TO DO</h1>
         <div className="task-scroll" ref={drop}>
           <List
@@ -119,7 +119,7 @@ function CurrentBoard() {
           Add Task
         </button>
       </div>
-      <div>
+      <div className="list-container">
         <h1>IN PROGRESS</h1>
         <div className="task-scroll" ref={drop2}>
           <List
@@ -130,7 +130,7 @@ function CurrentBoard() {
           />
         </div>
       </div>
-      <div>
+      <div className="list-container">
         <h1>DONE</h1>
 
         <div className="task-scroll" ref={drop3}>
