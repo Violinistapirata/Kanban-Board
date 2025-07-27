@@ -25,11 +25,10 @@ function SideBar() {
   return (
     <div className="sideBar-container">
       <h2>MY BOARDS</h2>
-      
       <ul className="sidebar_boards-scroll">
         {boardsArray.map((board) => {
           return (
-            <li key={board.id} className="board-card">
+            <li key={board.id} className="sidebar__board-card">
               <Link to={`/current-board/${board.id}`}>
                 <h2>{board.name}</h2>
               </Link>
