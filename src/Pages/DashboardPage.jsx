@@ -8,6 +8,7 @@ import { TaskListContext } from "../Contexts/taskLists.context";
 import { useState } from "react";
 //COMPONENTS
 import CreateBoardForm from "../components/CreateBoardForm";
+import DeleteButton from "../components/DeleteButton";
 // import CurrentBoard from "../components/CurrentBoard";
 
 //STYLES
@@ -21,11 +22,22 @@ function DashboardPage() {
 
   // State for the Add-board form
     const [showForm, setShowForm] = useState(false);
+    const [showConfirmationPrompt, setShowConfirmationPrompt] = useState(false)
+    const [selectedBoard, setSelectedBoard] = useState(null)
+    /* function handleDeleteBoard (boardId) {
+
+    } */
+    function handleShowConfirmationPrompt (boardId) {
+      setShowConfirmationPrompt(true);
+      const selectedBoard = boardsArray.find(board => board.id === boardId)
+      setSelectedBoard(selectedBoard)
+    }
 
   return (
     <div className="boards-container">
     
     <div className="boards-sub-container">
+          {/* {showConfirmationPrompt && <ConfirmationPrompt boardId={boardId} />} */}
     <h1>MY BOARDS</h1>
     <div className="dashboard__boards-scroll">
       {boardsArray.map((board) => {
@@ -33,7 +45,9 @@ function DashboardPage() {
           <article key={board.id} className="board-card">
             <Link to={`/current-board/${board.id}`}>
                 <h2>{board.name}</h2>
+                <DeleteButton handleF={() => handleShowConfirmationPrompt(board.id)} />
             </Link>
+
           </article>
         );
       })}
