@@ -8,14 +8,14 @@ function ContactPage() {
   return (
     <>
       <section id="contact-container">
-      <div id="contact-sub-container">
+      <div id="contact-sub-container" className="contact-page__scroll">
       <h1>CONTACT</h1>
 
       <p>
         Para más información, proyectos, cookies y demás puedes contactar con
         nosotros en...
       </p>
-    
+      <div className="contact__cards-container">
       <article id="eric-contact">
         <h3>Èric Masip</h3>
 
@@ -65,6 +65,7 @@ function ContactPage() {
           <p>tmartindsgn@gmail.com</p>
         </a>
       </article>
+      </div>
       </div>
       </section>
     </>
