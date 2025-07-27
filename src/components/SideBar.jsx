@@ -16,8 +16,8 @@ import "./SideBar.css";
 /*-------------------------------------------------------------------*/
 
 function SideBar() {
-  const { boardsArray } = useContext(TaskListContext);
   console.log("The SideBar component has rendered");
+  const { boardsArray } = useContext(TaskListContext);
 
   // State for the Add-board form
   const [showForm, setShowForm] = useState(false);

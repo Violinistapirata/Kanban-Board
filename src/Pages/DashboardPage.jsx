@@ -4,7 +4,10 @@ import { Link } from "react-router-dom";
 //CONTEXT
 import { TaskListContext } from "../Contexts/taskLists.context";
 
+//HOOKS
+import { useState } from "react";
 //COMPONENTS
+import CreateBoardForm from "../components/CreateBoardForm";
 // import CurrentBoard from "../components/CurrentBoard";
 
 //STYLES
@@ -15,6 +18,9 @@ import { useContext } from "react";
 function DashboardPage() {
   console.log("The DashboardPage component has rendered");
   const { boardsArray } = useContext(TaskListContext);
+
+  // State for the Add-board form
+    const [showForm, setShowForm] = useState(false);
 
   return (
     <div className="boards-container">
@@ -31,6 +37,8 @@ function DashboardPage() {
         );
       })}
       {/* {boardsArray.map(board => <CurrentBoard key={board.id} taskList={board.taskList} /> )} */}
+      {showForm && <CreateBoardForm setShowForm={setShowForm}/>}
+      <button className="create-board-button" onClick={() => setShowForm(true)}>Add New Board</button>
       </div>
     </div>
   );
