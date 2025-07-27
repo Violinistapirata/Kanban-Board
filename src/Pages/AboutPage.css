@@ -1,3 +1,4 @@
+
 #about {
   display: flex;
   justify-content: center;
@@ -6,9 +7,9 @@
   background-color: #5e22a7;
   width: 100%;
   padding: 2rem;
+  padding-bottom: 0;
   h1 {
     color: #5e22a7;
-    align-items: start;
     font-size: 42px;
   }
 }
@@ -17,9 +18,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: start;
+  gap: 2.5rem;
   width: 100%;
-
+  height: 100%;
   border-top-right-radius: 15px;
   background: linear-gradient(to bottom left, #f3f3f3, 30%, #5e22a7);
   padding: 2rem;
@@ -27,15 +29,37 @@
   p {
     color: #f3f3f3;
   }
+
+  h1 {
+    text-align: center;
+    padding-bottom: 0;
+  }
 }
+
+.about-page__scroll {
+    overflow-y: scroll;
+    width: 100%;
+    box-shadow: none;
+  }
+
+  .about-page__scroll::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+    /* .boards-scroll::-webkit-scrollbar-track {
+        background-color: #cacaca;
+        border-radius: 15px;
+    } */
+  .about-page__scroll::-webkit-scrollbar-thumb {
+    background-color: #9b9b9b;
+    border-radius: 15px;
+  }
 
 #presentacion {
   text-align: center;
-  margin-bottom: 2rem;
-  padding: 30px 95px 30px 95px;
+  /* padding: 30px 95px 30px 95px; */
 
   h2 {
-    margin-bottom: 1rem;
     color: #5e22a7;
     font-size: 25px;
     padding-bottom: 1rem;
@@ -47,7 +71,6 @@
   flex-direction: column;
   align-items: center;
   width: 100%;
-  margin-top: 2rem;
   text-align: center;
   background: linear-gradient(to bottom left, #f3f3f3, 30%, #5e22a7);
   border-top-right-radius: 15px;

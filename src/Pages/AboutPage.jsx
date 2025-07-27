@@ -4,7 +4,7 @@ function AboutPage() {
   console.log("The AboutPage component has rendered");
   return (
     <section id="about">
-      <div className="about-container">
+      <div className="about-container about-page__scroll">
         <h1>ABOUT</h1>
 
         <div id="presentacion">
