@@ -1,37 +1,69 @@
-import { useContext, useState } from "react"
-import { TaskListContext } from "../Contexts/taskLists.context"
+import { useContext, useState, useEffect } from "react";
+import { TaskListContext } from "../Contexts/taskLists.context";
 
-function ConfirmationPrompt ({selectedBoard, setShowConfirmationPrompt}) {
-    console.log(selectedBoard);
-    const [boardIsDeleted, setBoardIsDeleted] = useState(false)
+function ConfirmationPrompt({
+  boardToDelete,
+  setBoardToDelete,
+  setShowConfirmationPrompt,
+}) {
+  console.log(boardToDelete);
+  const { boardsArray, setBoardsArray } = useContext(TaskListContext);
 
-    const {boardsArray, setBoardsArray} = useContext(TaskListContext);
-    function handleDeleteBoard(boardId) {
-        const updatedBoardsArray = boardsArray.filter(board => board.id !== boardId);
-        setBoardsArray(updatedBoardsArray);
-        setBoardIsDeleted(true)
-        setTimeout(()=>{
-            setShowConfirmationPrompt(false)
-            setBoardIsDeleted(false)
-        }, 5000)
+  const [boardIsDeleted, setBoardIsDeleted] = useState(false);
+  const [countDown, setCountDown] = useState(5);
+
+  function handleDeleteBoard(boardId) {
+    const updatedBoardsArray = boardsArray.filter(
+      (board) => board.id !== boardId
+    );
+    setBoardsArray(updatedBoardsArray);
+    setBoardIsDeleted(true);
+  }
+
+  //count down
+  useEffect(() => {
+    if (boardIsDeleted && countDown > 0) {    
+        const timer = setTimeout(() => setCountDown(countDown - 1), 1000);
+        return () => clearTimeout(timer);
+    } else if (boardIsDeleted && countDown === 0) {    
+      setShowConfirmationPrompt(false);
+      setBoardIsDeleted(false);
+      setBoardToDelete(null);
+      setCountDown(5);
     }
-    return (
-        <div>
-            <h3>Delete confirmation</h3>
-            {!boardIsDeleted ? (
-            <>
-                <p>You are going to delete {selectedBoard.name}.</p>
-                <p>Do you wish to proceed?</p>
-                <div>
-                <button type="button" className="cancel-btn" onClick={() => setShowConfirmationPrompt(false)}>Wait, don&apos;t delete it</button>
-                <button type="button" onClick={() => handleDeleteBoard(selectedBoard.id)}>Yes, delete it</button>
-                </div>
-            </>
-            ) : (
-                <p>{selectedBoard.name} deleted successfully.</p>
-            )}
-        </div>
-    )
+  }, [boardIsDeleted, countDown]);
+
+  return (
+    <div>
+      <h3>Delete confirmation</h3>
+      {!boardIsDeleted ? (
+        <>
+          <p>You are going to delete {boardToDelete.name}.</p>
+          <p>Do you wish to proceed?</p>
+          <div>
+            <button
+              type="button"
+              className="cancel-btn"
+              onClick={() => setShowConfirmationPrompt(false)}
+            >
+              Wait, don&apos;t delete it
+            </button>
+            <button
+              type="button"
+              onClick={() => handleDeleteBoard(boardToDelete.id)}
+            >
+              Yes, delete it
+            </button>
+          </div>
+        </>
+      ) : (
+        <>
+          <p>{boardToDelete.name} deleted successfully.</p>
+          <p>Back to My Boards in {countDown}</p>
+        </>
+      )}
+    </div>
+  );
 }
 
 export default ConfirmationPrompt;
