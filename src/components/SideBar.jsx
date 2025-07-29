@@ -1,5 +1,5 @@
 //ROUTES
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 //CONTEXT
 import { TaskListContext } from "../Contexts/taskLists.context";
@@ -29,9 +29,10 @@ function SideBar() {
         {boardsArray.map((board) => {
           return (
             <li key={board.id} className="sidebar__board-card">
-              <Link to={`/current-board/${board.id}`}>
+              <NavLink to={`/current-board/${board.id}`}
+              className={({ isActive }) => (isActive ? "sidebar-button--active" : "sidebar-button")}>
                 <h2>{board.name}</h2>
-              </Link>
+              </NavLink>
             </li>
           );
         })}
