@@ -1,0 +1,15 @@
+.prompt-container {
+    position: relative;
+    padding: 1rem 2rem;
+    border: 3px solid black;
+    border-top: 3rem solid red;
+}
+
+.close-btn {
+    background-color: transparent;
+    position: absolute;
+    top: -2.3rem;
+    right: 0.5rem;
+    margin: 0;
+    padding:0.2rem 0.4rem
+}

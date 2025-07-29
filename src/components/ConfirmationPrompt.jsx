@@ -1,5 +1,14 @@
-import { useContext, useState, useEffect } from "react";
+
+//CONTEXT
 import { TaskListContext } from "../Contexts/taskLists.context";
+
+//HOOKS
+import { useContext, useState, useEffect } from "react";
+
+//STYLES
+import "./ConfirmationPrompt.css"
+
+/*-------------------------------------------------------------------*/
 
 function ConfirmationPrompt({
   boardToDelete,
@@ -31,10 +40,11 @@ function ConfirmationPrompt({
       setBoardToDelete(null);
       setCountDown(5);
     }
+
   }, [boardIsDeleted, countDown]);
 
   return (
-    <div>
+    <div className="prompt-container">
       <h3>Delete confirmation</h3>
       {!boardIsDeleted ? (
         <>
@@ -62,6 +72,7 @@ function ConfirmationPrompt({
           <p>Back to My Boards in {countDown}</p>
         </>
       )}
+      <button type="button" onClick={() => setShowConfirmationPrompt(false)} className="close-btn"> X </button>
     </div>
   );
 }
