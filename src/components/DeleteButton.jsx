@@ -1,4 +1,9 @@
 
+//STYLES
+import "./DeleteButton.css"
+
+/*-------------------------------------------------------------------*/
+
 function DeleteButton({handleF}) {
   console.log("The DeleteButton component has rendered");
   return (
@@ -8,5 +13,5 @@ function DeleteButton({handleF}) {
   )
 }
 
-export default DeleteButton
+export default DeleteButton;
 

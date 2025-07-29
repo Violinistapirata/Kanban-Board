@@ -8,6 +8,7 @@ import { useParams } from "react-router-dom";
 
 //COMPONENTS
 import List from "./List";
+import AddTaskButton from "./AddTaskButton";
 import CreateTaskForm from "./CreateTaskForm";
 
 //STYLES
@@ -101,6 +102,7 @@ function CurrentBoard() {
 
   return (
     <div className="current-board-container">
+    
       <div className="list-container">
         <h1>TO DO</h1>
         <div className="task-scroll" ref={drop}>
@@ -111,14 +113,9 @@ function CurrentBoard() {
             currentBoard={currentBoard}
           />
         </div>
-
-        <button
-          className="add-task-button"
-          onClick={() => setShowCreateTaskForm(true)}
-        >
-          Add Task
-        </button>
+        <AddTaskButton setShowCreateTaskForm={setShowCreateTaskForm} />
       </div>
+
       <div className="list-container">
         <h1>IN PROGRESS</h1>
         <div className="task-scroll" ref={drop2}>
@@ -130,9 +127,9 @@ function CurrentBoard() {
           />
         </div>
       </div>
+
       <div className="list-container">
         <h1>DONE</h1>
-
         <div className="task-scroll" ref={drop3}>
           <List
             listStatus="Done"
