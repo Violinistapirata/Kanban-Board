@@ -30,34 +30,40 @@ function SideBar() {
 
   return (
     <div className="sideBar-container">
-      <NavLink to={`/`}
-                className={({ isActive }) =>
-                  isActive ? "sidebar-button--active" : "sidebar-button"
-                }>
-      <h2>MY BOARDS</h2>
-
+      <section className="my-boards-container">
+        <NavLink
+          to={`/`}
+          className={({ isActive }) =>
+            isActive ? "sidebar-button--active" : "sidebar-button"
+          }
+        >
+          <h2>MY BOARDS</h2>
+        </NavLink>
+        <ul className="sidebar_boards-scroll">
+          {boardsArray.map((board) => {
+            return (
+              <li key={board.id} className="sidebar__board-card">
+                <NavLink
+                  to={`/current-board/${board.id}`}
+                  className={({ isActive }) =>
+                    isActive ? "sidebar-button--active" : "sidebar-button"
+                  }
+                >
+                  <h2>{board.name}</h2>
                 </NavLink>
-      <ul className="sidebar_boards-scroll">
-        {boardsArray.map((board) => {
-          return (
-            <li key={board.id} className="sidebar__board-card">
-              <NavLink
-                to={`/current-board/${board.id}`}
-                className={({ isActive }) =>
-                  isActive ? "sidebar-button--active" : "sidebar-button"
-                }
-              >
-                <h2>{board.name}</h2>
-              </NavLink>
-            </li>
-          );
-        })}
-      </ul>
-      {showForm && <CreateBoardForm setShowForm={setShowForm} />}
-      <button className="create-board-button" onClick={() => setShowForm(true)}>
-        Add New Board
-      </button>
-      <section className="sidebar__archive">
+              </li>
+            );
+          })}
+        </ul>
+        {showForm && <CreateBoardForm setShowForm={setShowForm} />}
+        <button
+          className="create-board-button"
+          onClick={() => setShowForm(true)}
+        >
+          Add New Board
+        </button>
+      </section>
+      <section className="archive-container">
         <h2>ARCHIVED BOARDS</h2>
         <ul className="sidebar_boards-scroll">
           {archivedBoardsArray.length ? (
