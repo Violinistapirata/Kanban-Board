@@ -47,7 +47,8 @@
         "dueDate": "2023-10-05",
         "isArchived": false
       }
-    ]
+    ],
+    "isArchived": false
   },
   {
     "id": "board2",
@@ -63,7 +64,8 @@
         "createdDate": "2023-09-15",
         "dueDate": "2023-09-30"
       }
-    ]
+    ],
+    "isArchived": true
   },
-  { "id": "board3", "name": "board 3", "taskList": [] }
+  { "id": "board3", "name": "board 3", "taskList": [], "isArchived": false }
 ]

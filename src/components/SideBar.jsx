@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 import { TaskListContext } from "../Contexts/taskLists.context";
 
 //HOOKS
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 
 //COMPONENTS
 import CreateBoardForm from "./CreateBoardForm";
@@ -21,25 +21,67 @@ function SideBar() {
 
   // State for the Add-board form
   const [showForm, setShowForm] = useState(false);
+  const [archivedBoardsArray, setArchivedBoardsArray] = useState([]);
+
+  useEffect(() => {
+    const filteredBoardsArray = boardsArray.filter((board) => board.isArchived);
+    setArchivedBoardsArray(filteredBoardsArray);
+  }, [boardsArray]);
 
   return (
     <div className="sideBar-container">
+      <NavLink to={`/`}
+                className={({ isActive }) =>
+                  isActive ? "sidebar-button--active" : "sidebar-button"
+                }>
       <h2>MY BOARDS</h2>
+
+                </NavLink>
       <ul className="sidebar_boards-scroll">
         {boardsArray.map((board) => {
           return (
             <li key={board.id} className="sidebar__board-card">
-              <NavLink to={`/current-board/${board.id}`}
-              className={({ isActive }) => (isActive ? "sidebar-button--active" : "sidebar-button")}>
+              <NavLink
+                to={`/current-board/${board.id}`}
+                className={({ isActive }) =>
+                  isActive ? "sidebar-button--active" : "sidebar-button"
+                }
+              >
                 <h2>{board.name}</h2>
               </NavLink>
             </li>
           );
         })}
       </ul>
-      {showForm && <CreateBoardForm setShowForm={setShowForm}/>}
-      <button className="create-board-button" onClick={() => setShowForm(true)}>Add New Board</button>
-      {/* <h2>ARCHIVED BOARDS</h2> */}
+      {showForm && <CreateBoardForm setShowForm={setShowForm} />}
+      <button className="create-board-button" onClick={() => setShowForm(true)}>
+        Add New Board
+      </button>
+      <section className="sidebar__archive">
+        <h2>ARCHIVED BOARDS</h2>
+        <ul className="sidebar_boards-scroll">
+          {archivedBoardsArray.length ? (
+            archivedBoardsArray.map((board) => {
+              return (
+                <li key={board.id} className="sidebar__board-card">
+                  <NavLink
+                    to={`/current-board/${board.id}`}
+                    className={({ isActive }) =>
+                      isActive ? "sidebar-button--active" : "sidebar-button"
+                    }
+                  >
+                    <h2>{board.name}</h2>
+                  </NavLink>
+                </li>
+              );
+            })
+          ) : (
+            <li>
+              <p>-- Empty --</p>
+            </li>
+          )}
+        </ul>
+      </section>
     </div>
   );
 }
