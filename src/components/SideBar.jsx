@@ -21,11 +21,15 @@ function SideBar() {
 
   // State for the Add-board form
   const [showForm, setShowForm] = useState(false);
+  const [myBoardsArray, setMyBoardsArray] = useState([]);
   const [archivedBoardsArray, setArchivedBoardsArray] = useState([]);
 
   useEffect(() => {
-    const filteredBoardsArray = boardsArray.filter((board) => board.isArchived);
-    setArchivedBoardsArray(filteredBoardsArray);
+
+    const filteredBoardsArray = boardsArray.filter((board) => !board.isArchived);
+    setMyBoardsArray(filteredBoardsArray);
+    const filteredArchivedBoardsArray = boardsArray.filter((board) => board.isArchived);
+    setArchivedBoardsArray(filteredArchivedBoardsArray);
   }, [boardsArray]);
 
   return (
@@ -40,7 +44,8 @@ function SideBar() {
           <h2>MY BOARDS</h2>
         </NavLink>
         <ul className="sidebar_boards-scroll">
-          {boardsArray.map((board) => {
+          {myBoardsArray.length ? (
+            myBoardsArray.map((board) => {
             return (
               <li key={board.id} className="sidebar__board-card">
                 <NavLink
@@ -53,7 +58,11 @@ function SideBar() {
                 </NavLink>
               </li>
             );
-          })}
+          })) : (
+            <li>
+              <p>-- Empty --</p>
+            </li>
+          )}
         </ul>
         {showForm && <CreateBoardForm setShowForm={setShowForm} />}
         <button
