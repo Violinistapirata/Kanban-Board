@@ -69,7 +69,7 @@ function ConfirmationPrompt({
       ) : (
         <>
           <p>{boardToDelete.name} deleted successfully.</p>
-          <p>Back to My Boards in {countDown}</p>
+          <p>Back to Archived Boards in {countDown}</p>
         </>
       )}
       <button type="button" onClick={() => setShowConfirmationPrompt(false)} className="close-btn"> X </button>

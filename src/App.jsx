@@ -3,6 +3,7 @@ import { Route, Routes } from "react-router-dom";
 
 //PAGES
 import DashboardPage from "./Pages/DashboardPage";
+import ArchivedBoardsPage from "./Pages/ArchivedBoardsPage";
 import CurrentBoard from "./components/CurrentBoard"
 import TaskDetailsPage from "./Pages/TaskDetailsPage";
 import AboutPage from "./Pages/AboutPage";
@@ -29,6 +30,7 @@ function App() {
         <SideBar />
         <Routes>
           <Route path="/" element={<DashboardPage />} />
+          <Route path="/archived" element={<ArchivedBoardsPage />} />
           <Route path="/current-board/:boardId" element={<CurrentBoard />} />
           <Route path="/details/:boardId/:taskId" element={<TaskDetailsPage />} />
           <Route path="/about" element={<AboutPage />} />

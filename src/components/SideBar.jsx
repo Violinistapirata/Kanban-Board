@@ -64,7 +64,14 @@ function SideBar() {
         </button>
       </section>
       <section className="archive-container">
-        <h2>ARCHIVED BOARDS</h2>
+        <NavLink
+          to={`/archived`}
+          className={({ isActive }) =>
+            isActive ? "sidebar-button--active" : "sidebar-button"
+          }
+        >
+          <h2>ARCHIVED BOARDS</h2>
+        </NavLink>
         <ul className="sidebar_boards-scroll">
           {archivedBoardsArray.length ? (
             archivedBoardsArray.map((board) => {

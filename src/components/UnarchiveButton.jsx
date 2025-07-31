@@ -5,24 +5,24 @@ import { TaskListContext } from "../Contexts/taskLists.context";
 import { useContext } from "react";
 
 //STYLES
-import "./ArchiveButton.css"
+import "./UnarchiveButton.css"
 
 /*-------------------------------------------------------------------*/
 
-function ArchiveButton ({selectedBoard}) {
+function UnarchiveButton ({selectedBoard}) {
 
     const { boardsArray, setBoardsArray } = useContext(TaskListContext);
 
     function handleArchiveBoard(boardToArchive) {
-        boardToArchive.isArchived = true;
+        boardToArchive.isArchived = false;
         setBoardsArray([...boardsArray]);
     }
 
     return(
         <button className="archive-button" onClick={()=>handleArchiveBoard(selectedBoard)}>
-                    <img src="/images/archive-icon.svg" alt="Archive button" />
+                    <img src="/images/unarchive-icon.svg" alt="Archive button" />
                 </button>
     )
 }
 
-export default ArchiveButton;
+export default UnarchiveButton;

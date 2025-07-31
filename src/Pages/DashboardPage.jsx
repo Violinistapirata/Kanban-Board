@@ -10,16 +10,16 @@ import { useContext } from "react";
 
 //COMPONENTS
 import CreateBoardForm from "../components/CreateBoardForm";
-// import DeleteButton from "../components/DeleteButton";
+
 import ConfirmationPrompt from "../components/ConfirmationPrompt";
 import NewBoardButton from "../components/NewBoardButton";
 // import CurrentBoard from "../components/CurrentBoard";
-
-//STYLES
-import "./DashboardPage.css";
 import ArchiveButton from "../components/ArchiveButton";
 import EditButton from "../components/EditButton";
 import EditBoardNameForm from "../components/EditBoardNameForm";
+
+//STYLES
+import "./DashboardPage.css";
 
 /*-------------------------------------------------------------------*/
 
