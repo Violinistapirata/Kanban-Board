@@ -9,12 +9,11 @@ import { useState } from "react";
 import { useContext } from "react";
 
 //COMPONENTS
+import NewBoardButton from "../components/NewBoardButton";
 import CreateBoardForm from "../components/CreateBoardForm";
 
-import ConfirmationPrompt from "../components/ConfirmationPrompt";
-import NewBoardButton from "../components/NewBoardButton";
-// import CurrentBoard from "../components/CurrentBoard";
 import ArchiveButton from "../components/ArchiveButton";
+
 import EditButton from "../components/EditButton";
 import EditBoardNameForm from "../components/EditBoardNameForm";
 
@@ -37,34 +36,13 @@ function DashboardPage() {
     (boardToEdit && boardToEdit.name) || ""
   );
 
-  //Delete function states
-  const [showConfirmationPrompt, setShowConfirmationPrompt] = useState(false);
-  const [boardToDelete, setBoardToDelete] = useState(null);
-
   const editBoardStateProps = { setShowEditNameInput, boardToEdit, setBoardToEdit, boardName, setBoardName}
   
-
-  //Move this to the ArchivedBoardsPage
-  /* function handleShowConfirmationPrompt(boardId) {
-    console.log("THIS IS THE BOARD ID:", boardId);
-
-    setShowConfirmationPrompt(true);
-    const selectedBoard = boardsArray.find((board) => board.id === boardId);
-    console.log("THIS IS THE SELECTED BOARD:", selectedBoard);
-
-    setBoardToDelete(selectedBoard);
-  } */
 
   return (
     <div className="boards-container">
       <div className="boards-sub-container">
-        {showConfirmationPrompt && (
-          <ConfirmationPrompt
-            boardToDelete={boardToDelete}
-            setBoardToDelete={setBoardToDelete}
-            setShowConfirmationPrompt={setShowConfirmationPrompt}
-          />
-        )}
+
         <h1>MY BOARDS</h1>
         <div className="dashboard__boards-scroll">
           {myBoardsArray.map((board) => {
@@ -80,10 +58,6 @@ function DashboardPage() {
                 )}
                 <ArchiveButton selectedBoard={board}/>
                 <EditButton setShowEditNameInput={setShowEditNameInput} setBoardToEdit={setBoardToEdit} board={board}/>
-                {/* Move the DeleteButton to the ArchivedBoardsPage*/}
-                {/* <DeleteButton
-                  handleF={() => handleShowConfirmationPrompt(board.id)}
-                /> */}
               </article>
             );
           })}

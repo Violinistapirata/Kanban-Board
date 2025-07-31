@@ -47,7 +47,7 @@ function Task ({currentBoard, currentTaskList, setCurrentTaskList, task}){
             </li>
             <li className="task-text">Assignee: {task.assignee}</li>
             <li className="task-text">Priority: {task.priority}</li>
-            <li><DeleteButton handleF={handleDeleteTask} /></li>
+            {!currentBoard.isArchived && <li><DeleteButton handleF={handleDeleteTask} /></li>}
         </ul>
     </>
     )

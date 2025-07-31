@@ -5,6 +5,7 @@ import { NavLink } from "react-router-dom";
 import { TaskListContext } from "../Contexts/taskLists.context";
 
 //HOOKS
+import { useDrop } from "react-dnd";
 import { useState, useContext } from "react";
 
 //COMPONENTS
@@ -12,16 +13,41 @@ import CreateBoardForm from "./CreateBoardForm";
 
 //STYLES
 import "./SideBar.css";
+import SidebarBoardCard from "./SidebarBoardCard";
 
 /*-------------------------------------------------------------------*/
 
 function SideBar() {
   console.log("The SideBar component has rendered");
-  const { myBoardsArray, setMyBoardsArray, archivedBoardsArray, setArchivedBoardsArray } = useContext(TaskListContext);
+  const {
+    boardsArray,
+    setBoardsArray,
+    myBoardsArray,
+    archivedBoardsArray,
+  } = useContext(TaskListContext);
 
   // State for the Add-board form
   const [showForm, setShowForm] = useState(false);
-  
+
+  //Drag-and-drop functionality
+  const [, sidebarMyBoardsSection] = useDrop(() => ({
+    accept: "board",
+    drop: (item) => changeBoardIsArchivedStatus(item.board, false),
+  }));
+  const [, sidebarArchivedBoardsSection] = useDrop(() => ({
+    accept: "board",
+    drop: (item) => changeBoardIsArchivedStatus(item.board, true),
+  }));
+
+  function changeBoardIsArchivedStatus(board, newStatus) {
+    board.isArchived = newStatus;
+    setBoardsArray([...boardsArray])
+    /* setCurrentTaskList((prevTaskList) =>
+      prevTaskList.map((task) =>
+        task.id === taskId ? { ...task, status: newStatus } : task
+      )
+    ); */
+  }
 
   return (
     <div className="sideBar-container">
@@ -34,22 +60,14 @@ function SideBar() {
         >
           <h2>MY BOARDS</h2>
         </NavLink>
-        <ul className="sidebar_boards-scroll">
+        <ul className="sidebar_boards-scroll" ref={sidebarMyBoardsSection}>
           {myBoardsArray.length ? (
             myBoardsArray.map((board) => {
-            return (
-              <li key={board.id} className="sidebar__board-card">
-                <NavLink
-                  to={`/current-board/${board.id}`}
-                  className={({ isActive }) =>
-                    isActive ? "sidebar-button--active" : "sidebar-button"
-                  }
-                >
-                  <h2>{board.name}</h2>
-                </NavLink>
-              </li>
-            );
-          })) : (
+              return (
+               <SidebarBoardCard key={board.id} board={board}/>
+              );
+            })
+          ) : (
             <li>
               <p>-- Empty --</p>
             </li>
@@ -72,20 +90,11 @@ function SideBar() {
         >
           <h2>ARCHIVED BOARDS</h2>
         </NavLink>
-        <ul className="sidebar_boards-scroll">
+        <ul className="sidebar_boards-scroll" ref={sidebarArchivedBoardsSection}>
           {archivedBoardsArray.length ? (
             archivedBoardsArray.map((board) => {
               return (
-                <li key={board.id} className="sidebar__board-card">
-                  <NavLink
-                    to={`/current-board/${board.id}`}
-                    className={({ isActive }) =>
-                      isActive ? "sidebar-button--active" : "sidebar-button"
-                    }
-                  >
-                    <h2>{board.name}</h2>
-                  </NavLink>
-                </li>
+                <SidebarBoardCard key={board.id} board={board}/>
               );
             })
           ) : (
