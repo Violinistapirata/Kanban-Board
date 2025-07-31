@@ -105,7 +105,7 @@ function CurrentBoard() {
     
       <div className="list-container">
         <h1>TO DO</h1>
-        <div className="task-scroll" ref={drop}>
+        <div className="task-scroll" ref={currentBoard.isArchived ? null : drop}>
           <List
             listStatus="To Do"
             currentTaskList={currentTaskList}
@@ -113,12 +113,12 @@ function CurrentBoard() {
             currentBoard={currentBoard}
           />
         </div>
-        <AddTaskButton setShowCreateTaskForm={setShowCreateTaskForm} />
+        {!currentBoard.isArchived && <AddTaskButton setShowCreateTaskForm={setShowCreateTaskForm} />}
       </div>
 
       <div className="list-container">
         <h1>IN PROGRESS</h1>
-        <div className="task-scroll" ref={drop2}>
+        <div className="task-scroll" ref={currentBoard.isArchived ? null : drop2}>
           <List
             listStatus="In Progress"
             currentTaskList={currentTaskList}
@@ -130,7 +130,7 @@ function CurrentBoard() {
 
       <div className="list-container">
         <h1>DONE</h1>
-        <div className="task-scroll" ref={drop3}>
+        <div className="task-scroll" ref={currentBoard.isArchived ? null : drop3}>
           <List
             listStatus="Done"
             currentTaskList={currentTaskList}

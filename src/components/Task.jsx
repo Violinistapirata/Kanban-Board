@@ -39,7 +39,7 @@ function Task ({currentBoard, currentTaskList, setCurrentTaskList, task}){
 
     return (
     <>
-        <ul ref={drag} className={`task-container ${isDragging && "red-border"}`} draggable="true">
+        <ul ref={currentBoard.isArchived ? null : drag} className={`task-container ${isDragging && "red-border"}`} draggable="true">
             <li>
                 <h2>
                 <Link to={`/details/${currentBoard.id}/${task.id}`}>{task.title}</Link>

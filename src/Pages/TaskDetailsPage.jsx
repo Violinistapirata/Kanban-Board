@@ -89,7 +89,7 @@ function TaskDetailsPage() {
           </li>
         </ul>
         <br />
-        <button onClick={handleEditTask}>Edit task</button>
+        {!currentBoard.isArchived && <button onClick={handleEditTask}>Edit task</button>}
         <Link to={`/current-board/${boardId}`}>
           <button>{"<-- Back to board"}</button>
         </Link>
