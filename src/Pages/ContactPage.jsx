@@ -16,7 +16,7 @@ function ContactPage() {
         nosotros en...
       </p>
       <div className="contact__cards-container">
-      <article id="eric-contact">
+      <article id="eric-contact" className="contact-card">
         <h3>Èric Masip</h3>
 
         <a
@@ -46,7 +46,7 @@ function ContactPage() {
           <p> ericmasipvilalta@gmail.com</p>
         </a>
       </article>
-      <article id="tomas-contact">
+      <article id="tomas-contact" className="contact-card">
         <h3>Tomás Martín</h3>
         <a
           href="https://github.com/tmartin87"

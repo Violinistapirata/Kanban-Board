@@ -10,19 +10,21 @@ import { useContext } from "react";
 
 //COMPONENTS
 import CreateBoardForm from "../components/CreateBoardForm";
-import DeleteButton from "../components/DeleteButton";
+// import DeleteButton from "../components/DeleteButton";
 import ConfirmationPrompt from "../components/ConfirmationPrompt";
 import NewBoardButton from "../components/NewBoardButton";
 // import CurrentBoard from "../components/CurrentBoard";
 
 //STYLES
 import "./DashboardPage.css";
+import ArchiveButton from "../components/ArchiveButton";
+import EditButton from "../components/EditButton";
 
 /*-------------------------------------------------------------------*/
 
 function DashboardPage() {
   console.log("The DashboardPage component has rendered");
-  const { boardsArray, setBoardsArray } = useContext(TaskListContext);
+  const { boardsArray, setBoardsArray, myBoardsArray, setMyBoardsArray, archivedBoardsArray, setArchivedBoardsArray } = useContext(TaskListContext);
 
   // State for the Add-board form
   const [showForm, setShowForm] = useState(false);
@@ -49,7 +51,8 @@ function DashboardPage() {
     setBoardName(value);
   }
 
-  function handleShowConfirmationPrompt(boardId) {
+  //Move this to the ArchivedBoardsPage
+  /* function handleShowConfirmationPrompt(boardId) {
     console.log("THIS IS THE BOARD ID:", boardId);
 
     setShowConfirmationPrompt(true);
@@ -57,7 +60,7 @@ function DashboardPage() {
     console.log("THIS IS THE SELECTED BOARD:", selectedBoard);
 
     setBoardToDelete(selectedBoard);
-  }
+  } */
 
   return (
     <div className="boards-container">
@@ -71,7 +74,7 @@ function DashboardPage() {
         )}
         <h1>MY BOARDS</h1>
         <div className="dashboard__boards-scroll">
-          {boardsArray.map((board) => {
+          {myBoardsArray.map((board) => {
             return (
               <article key={board.id} className="board-card">
                 {showEditNameInput && boardToEdit && boardToEdit.id === board.id ? (
@@ -88,19 +91,12 @@ function DashboardPage() {
                   </Link>
                   
                 )}
-
-                <button
-                  className="edit-button"
-                  onClick={() => {
-                    setShowEditNameInput(true)
-                    setBoardToEdit(board)
-                    }}
-                >
-                  <img src="/images/edit-pencil.svg"></img>
-                </button>
-                <DeleteButton
+                <ArchiveButton selectedBoard={board}/>
+                <EditButton setShowEditNameInput={setShowEditNameInput} setBoardToEdit={setBoardToEdit} board={board}/>
+                {/* Move the DeleteButton to the ArchivedBoardsPage*/}
+                {/* <DeleteButton
                   handleF={() => handleShowConfirmationPrompt(board.id)}
-                />
+                /> */}
               </article>
             );
           })}

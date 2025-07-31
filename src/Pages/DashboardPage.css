@@ -91,26 +91,7 @@ article {
   }
 }
 
-.edit-button {
-  margin: 0;
-  padding: 0;
-  background: transparent;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  font-size: 14px;
-  font-weight: bold;
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
-  opacity: 1;
 
-  img {
-    width: 30px;
-    margin-right: 0;
-    padding-bottom: 0;
-  }
-}
 
 .sidebar {
   justify-content: center;

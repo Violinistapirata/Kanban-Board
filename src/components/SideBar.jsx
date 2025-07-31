@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 import { TaskListContext } from "../Contexts/taskLists.context";
 
 //HOOKS
-import { useState, useContext, useEffect } from "react";
+import { useState, useContext } from "react";
 
 //COMPONENTS
 import CreateBoardForm from "./CreateBoardForm";
@@ -17,20 +17,11 @@ import "./SideBar.css";
 
 function SideBar() {
   console.log("The SideBar component has rendered");
-  const { boardsArray } = useContext(TaskListContext);
+  const { myBoardsArray, setMyBoardsArray, archivedBoardsArray, setArchivedBoardsArray } = useContext(TaskListContext);
 
   // State for the Add-board form
   const [showForm, setShowForm] = useState(false);
-  const [myBoardsArray, setMyBoardsArray] = useState([]);
-  const [archivedBoardsArray, setArchivedBoardsArray] = useState([]);
-
-  useEffect(() => {
-
-    const filteredBoardsArray = boardsArray.filter((board) => !board.isArchived);
-    setMyBoardsArray(filteredBoardsArray);
-    const filteredArchivedBoardsArray = boardsArray.filter((board) => board.isArchived);
-    setArchivedBoardsArray(filteredArchivedBoardsArray);
-  }, [boardsArray]);
+  
 
   return (
     <div className="sideBar-container">

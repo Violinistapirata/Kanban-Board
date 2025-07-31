@@ -2,15 +2,15 @@
 import KanbanJson from "../data/kanban.json";
 
 //HOOKS
-import { createContext, useState, useEffect} from "react";
+import { createContext, useState, useEffect } from "react";
 
 /*-------------------------------------------------------------------*/
 const TaskListContext = createContext();
 
 function TaskListProviderWrapper(props) {
-
+  console.log("The taskList.context component has rendered");
   const [boardsArray, setBoardsArray] = useState(null);
-  
+
   // Function to load data from localStorage
   const loadData = () => {
     const storedBoards = localStorage.getItem("boardsArray");
@@ -19,7 +19,7 @@ function TaskListProviderWrapper(props) {
     } else {
       setBoardsArray(KanbanJson);
     }
-  };  
+  };
   // Load data from localStorage when the component mounts
   !boardsArray && loadData();
 
@@ -27,7 +27,18 @@ function TaskListProviderWrapper(props) {
   useEffect(() => {
     localStorage.setItem("boardsArray", JSON.stringify(boardsArray));
   }, [boardsArray]);
-  console.log("The taskList.context component has rendered");
+
+  //Initialize states for my boards and the archived boards
+  const [myBoardsArray, setMyBoardsArray] = useState([]);
+  const [archivedBoardsArray, setArchivedBoardsArray] = useState([]);
+
+  useEffect(() => {
+    const filteredBoardsArray = boardsArray.filter((board) => !board.isArchived);
+    setMyBoardsArray(filteredBoardsArray);
+    const filteredArchivedBoardsArray = boardsArray.filter((board) => board.isArchived);
+    setArchivedBoardsArray(filteredArchivedBoardsArray);
+  }, [boardsArray]);
+
   // Instead, if we have a backend database with the boards data we could fetch it like this when the app mounts
   /*  
     fetch("BACKEND URL")
@@ -51,6 +62,10 @@ function TaskListProviderWrapper(props) {
       value={{
         boardsArray,
         setBoardsArray,
+        myBoardsArray,
+        setMyBoardsArray,
+        archivedBoardsArray,
+        setArchivedBoardsArray
       }}
     >
       {props.children}
