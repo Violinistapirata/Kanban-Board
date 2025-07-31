@@ -19,37 +19,30 @@ import NewBoardButton from "../components/NewBoardButton";
 import "./DashboardPage.css";
 import ArchiveButton from "../components/ArchiveButton";
 import EditButton from "../components/EditButton";
+import EditBoardNameForm from "../components/EditBoardNameForm";
 
 /*-------------------------------------------------------------------*/
 
 function DashboardPage() {
   console.log("The DashboardPage component has rendered");
-  const { boardsArray, setBoardsArray, myBoardsArray, setMyBoardsArray, archivedBoardsArray, setArchivedBoardsArray } = useContext(TaskListContext);
+  const { myBoardsArray } = useContext(TaskListContext);
 
-  // State for the Add-board form
+  //Create function states
   const [showForm, setShowForm] = useState(false);
+
+  //Edit function states
   const [showEditNameInput, setShowEditNameInput] = useState(false);
-  const [boardToEdit, setBoardToEdit] = useState(null)
-  const [boardName, setBoardName] = useState(boardToEdit && boardToEdit.name || "" );
+  const [boardToEdit, setBoardToEdit] = useState(null);
+  const [boardName, setBoardName] = useState(
+    (boardToEdit && boardToEdit.name) || ""
+  );
+
+  //Delete function states
   const [showConfirmationPrompt, setShowConfirmationPrompt] = useState(false);
   const [boardToDelete, setBoardToDelete] = useState(null);
 
-  console.log("THIS IS THE BOARD TO EDIT:", boardToEdit);
+  const editBoardStateProps = { setShowEditNameInput, boardToEdit, setBoardToEdit, boardName, setBoardName}
   
-  function handleEditBoardName(e) {
-    e.preventDefault();
-
-    boardToEdit.name = boardName;
-    setBoardsArray([...boardsArray])
-    setBoardName("");
-    setBoardToEdit(null);
-    setShowEditNameInput(false);
-  }
-
-  function handleInput(e) {
-    const value = e.target.value;
-    setBoardName(value);
-  }
 
   //Move this to the ArchivedBoardsPage
   /* function handleShowConfirmationPrompt(boardId) {
@@ -78,13 +71,7 @@ function DashboardPage() {
             return (
               <article key={board.id} className="board-card">
                 {showEditNameInput && boardToEdit && boardToEdit.id === board.id ? (
-                  <form onSubmit={handleEditBoardName}>
-                    <input
-                      value={boardName}
-                      placeholder={board.name}
-                      onChange={handleInput}
-                    ></input>
-                  </form>
+                  <EditBoardNameForm board={board} editBoardStateProps={editBoardStateProps} />
                 ) : (
                   <Link to={`/current-board/${board.id}`}>
                     <h2>{board.name}</h2>
