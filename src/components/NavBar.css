@@ -1,52 +1,85 @@
 .navbar-container {
-    display: flex;
-    justify-content: space-around;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  height: 10%;
+  padding: 0.5rem;
+  padding-bottom: 0;
+  background: #5e22a7;
+  border-top-right-radius: 15px;
+  border-top-left-radius: 15px;
+  border-bottom: 1px solid rgb(255, 255, 255);
+}
+
+.navbar-tabs-container {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 30dvw;
+
+  img {
     width: 100%;
-    height: 60px;
-    background: #5e22a7;
-    border-top-right-radius: 15px;
-    border-top-left-radius: 15px;
-    border-bottom: 1px solid rgb(255, 255, 255);
   }
-  
-  .logo img {
-    margin-top: 6%;
-    width: auto;
-    height: 49px;
-  }
-  
-  .navbar-button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #ffffff;
-    font-size: 16px;
-    width: 200PX;
-    height: 90PX;
-    
-    font-weight: bold;
-    background: linear-gradient(to bottom left, #ececec, 20%, #5e22a7);
-    cursor: pointer;
-    border-top-right-radius: 20px;
-    height: 61PX;
-    border-bottom: 2px solid #ffffff;
-    
-    
-   
+}
+
+.navbar-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  font-size: 16px;
+  width: 200px;
+  height: 90px;
+
+  font-weight: bold;
+  background: linear-gradient(to bottom left, #ececec, 20%, #5e22a7);
+  cursor: pointer;
+  border-top-right-radius: 20px;
+  height: 61px;
+  border-bottom: 2px solid #ffffff;
+}
+
+.navbar-button:hover {
+  color: #fff;
+  background: linear-gradient(to bottom left, #ffffff, 20%, #481b80);
+}
+
+.navbar-button.active {
+  height: 62px;
+}
+
+.menu-button {
+  display: none;
+  height: 100%;
+}
+
+/* ---------- MEDIA QUERIES ---------- */
+
+@media (width <= 40rem /* 640px */) {
+  .navbar-container {
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
   }
 
-  
-  .navbar-button:hover {
-    color: #fff;
-    background: linear-gradient(to bottom left, #ffffff, 20%, #481b80);
+  .logo {
+    max-width: 70%;
   }
-  
-  
-  .navbar-button.active {
-   
-   height: 62PX;
-   
-   
-   
-    
+
+  .navbar-tabs-container {
+    display: none;
   }
+
+  .menu-button {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    background: none;
+  }
+}

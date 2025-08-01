@@ -7,13 +7,15 @@ import "./NavBar.css";
 function NavBar() {
   console.log("The NavBar component has rendered");
   return (
-    <nav>
-      <ul className="navbar-container">
-        <NavLink to="/">
-          <li className="logo">
-            <img src="/images/LOGO.png" alt="Logo" />
-          </li>
+    <nav className="navbar-container">
+        <NavLink to="/" className="logo">
+            <img src="/images/LOGO.PNG" alt="Logo" />
         </NavLink>
+
+        <button type="button" className="menu-button">
+          <img src="/images/menu-icon.svg" alt="menu button" />
+        </button>
+      <ul className="navbar-tabs-container">
         <li>
           <NavLink
             to="/"
