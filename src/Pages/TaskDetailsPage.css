@@ -9,8 +9,13 @@ p {
 }
 
 .task-details-container {
-  margin: 1rem;
-  margin-bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: space-between;
+  gap: 1rem;
+  max-height: 100%;
+  margin: 0;
   padding: 1rem;
   background: linear-gradient(to bottom left, #f3f3f3, 30%, #5e22a7);
   box-shadow: 3px 6px 15px #654d83;
@@ -20,16 +25,41 @@ p {
 
 .task-details-main-background {
   width: 100%;
-
   margin: 0px;
-  background-color: #5e22a7;
+  padding: 1rem;
   padding-bottom: 0px;
+  background-color: #5e22a7;
 }
 
 .task-details-background {
   background-color: #f3f3f3;
   padding: 30px;
   border-top-right-radius: 15px;
+}
+
+.task-details-scroll {
+  height: max-content;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: start;
+  gap: 0.5rem;
+  overflow-y: scroll;
+  width: 100%;
+  box-shadow: none;
+}
+
+.task-details-scroll::-webkit-scrollbar {
+  width: 7px;
+}
+/*   
+    .boards-scroll::-webkit-scrollbar-track {
+        background-color: #cacaca;
+        border-radius: 15px;
+    } */
+.task-details-scroll::-webkit-scrollbar-thumb {
+  background-color: #9b9b9b;
+  border-radius: 15px;
 }
 
 button {

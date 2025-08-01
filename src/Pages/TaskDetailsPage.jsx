@@ -43,7 +43,7 @@ function TaskDetailsPage() {
     <div className="task-details-main-background">
       <div className="task-details-container">
         <h1>TASK DETAILS</h1>
-        <ul className="task-details-background">
+        <ul className="task-details-background task-details-scroll">
           <li>
             <h3>Title: </h3>
             <p>{title}</p>
@@ -89,10 +89,12 @@ function TaskDetailsPage() {
           </li>
         </ul>
         <br />
+        <div>
         {!currentBoard.isArchived && <button onClick={handleEditTask}>Edit task</button>}
         <Link to={`/current-board/${boardId}`}>
           <button>{"<-- Back to board"}</button>
         </Link>
+        </div>
       </div>
     </div>
   );
