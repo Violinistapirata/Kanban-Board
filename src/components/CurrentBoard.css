@@ -9,13 +9,12 @@ h1 {
   padding-bottom: 0;
   width: 100%;
   display: flex;
-  justify-content: start;
-  align-items: start;
-  gap: 4rem;
+  justify-content: space-between;
   background-color: #5e22a7;
 
   .list-container {
     height: 100%;
+    width: 30%;
     display: flex; 
     flex-direction: column;
     align-items: center;
@@ -77,4 +76,26 @@ h1 {
 
 .red-border {
   border: 1px solid red;
+}
+
+
+@media (width <= 40rem /*640px*/) {
+  .current-board-container {
+    width: 100%;
+    overflow-x: scroll;
+    gap: 2rem;
+    
+    .list-container {
+      width: 100dvw;
+
+      h1 {
+        padding-bottom: 0;
+      }
+    }
+
+    .task-scroll {
+      width: 60dvw;
+    }
+  }
+
 }
