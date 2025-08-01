@@ -5,6 +5,7 @@
   align-items: center;
   width: 200px;
   height: 150px;
+  padding: 1rem;
   border: 1px solid rgb(255, 255, 255);
   text-align: center;
 }
@@ -100,5 +101,12 @@ article {
 
   article {
     width: 100%;
+  }
+}
+
+@media (width <=40rem /* 640px */) {
+  .boards-container h1 {
+    font-size: x-large;
+    text-align: center;
   }
 }
