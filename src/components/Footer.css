@@ -1,18 +1,26 @@
 .footer-container {
+    width: 100%;
+    height: 5%;
+    padding: 0.5rem 1rem;
     display: flex;
     justify-content: space-around;
     align-items: center;
-    width: 100%;
-    height: 60PX;
-    
+    gap: 1rem;
     background:  #5e22a7;
     border-bottom-right-radius: 15px;
     border-bottom-left-radius: 15px;
     font-size: 15px;
     font-weight: bold;
     color: #ffffff;
+
     a{
         color: #ffffff;
 
+    }
+}
+
+@media (width <=40rem /* 640px */) {
+    .footer-container li {
+        font-size: 10px;
     }
 }
