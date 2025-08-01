@@ -60,6 +60,33 @@
   height: 100%;
 }
 
+.menu-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100dvw;
+  height: 100dvh;
+  padding: 3rem 2rem;
+  background-color: #481b80;
+
+  li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  a {
+    font-size: 2rem;
+    text-align: center;
+    color:#ececec;
+  }
+}
+
 /* ---------- MEDIA QUERIES ---------- */
 
 @media (width <= 40rem /* 640px */) {
