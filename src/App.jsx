@@ -32,7 +32,7 @@ function App() {
           <Route path="/" element={<DashboardPage />} />
           <Route path="/archived" element={<ArchivedBoardsPage />} />
           <Route path="/current-board/:boardId" element={<CurrentBoard />} />
-          <Route path="/details/:boardId/:taskId" element={<TaskDetailsPage />} />
+          <Route path="/current-board/:boardId/:taskId" element={<TaskDetailsPage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="*" element={<NotFoundPage />} />

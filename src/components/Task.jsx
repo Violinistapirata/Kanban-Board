@@ -42,7 +42,7 @@ function Task ({currentBoard, currentTaskList, setCurrentTaskList, task}){
         <ul ref={currentBoard.isArchived ? null : drag} className={`task-container ${isDragging && "red-border"}`} draggable="true">
             <li>
                 <h2>
-                <Link to={`/details/${currentBoard.id}/${task.id}`}>{task.title}</Link>
+                <Link to={`/current-board/${currentBoard.id}/${task.id}`}>{task.title}</Link>
                 </h2>
             </li>
             <li className="task-text">Assignee: {task.assignee}</li>
