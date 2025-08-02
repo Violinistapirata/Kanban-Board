@@ -19,7 +19,7 @@ function NavBar() {
   return (
     <nav className="navbar-container">
       <NavLink to="/" className="logo">
-        <img src="/images/LOGO.PNG" alt="Logo" />
+        <img src="/images/LOGO.png" alt="Logo" />
       </NavLink>
 
       <button type="button" className="menu-button" onClick={toggleMenu}>
