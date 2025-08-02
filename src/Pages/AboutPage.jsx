@@ -22,7 +22,7 @@ function AboutPage() {
 
           <div className="profiles-container">
             <article id="eric-profile">
-              <h3>Èric Masip Vilalta - El Violinista Pirata</h3>
+              <h3>Èric Masip Vilalta <br/> El Violinista Pirata</h3>
               <div className="profile-img eric">
                 {/* <img src="../src/images/eric-profile-img.JPG" alt="Èric Masip Vilalta - El Violinista Pirata" /> */}
               </div>
